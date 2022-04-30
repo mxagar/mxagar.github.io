@@ -27,8 +27,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: ""      # place folder name if the site is served in a subfolder
-domain: mxagar.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://mxagar.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+#domain: mxagar.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+#url: https://mxagar.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+domain: mikelsagardia.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://mikelsagardia.io  # the base hostname and protocol for your site, e.g. http://example.com
 twitter_username: mikelsagardia
 github_username:  mxagar
 
