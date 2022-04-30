@@ -4,15 +4,29 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<img src="/assets/mikel_sagardia_big_lowres.jpg" alt="Mikel Sagardia" width="200"/>
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Hi, I'm Mikel Sagardia!
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I'm an engineer located in San Sebastián (Basque Country / Spain).
 
+I have a PhD in the intersection between robotics, virtual simulations and human-machine interfaces. However, in the past years my interest has shifted to
 
-[jekyll-organization]: https://github.com/jekyll
+- **machine vision**,
+- **machine learning**,
+- and **data science**.
+
+Currently, I'm collaborating with a limited number of teams as an external consultant. At the same time, I'm learning and building business ideas.
+
+Previously, I have lived in Munich (Germany) for over 14 years -- bitte gleich auf Deutsch mit mir! There, I worked at the German Aerospace Center (where the KUKA cobot was orginally conceived) and MVTec (where the great Halcon machine vision toolkit is crafted).
+
+You can reach out to me or get more information about me via 
+
+- my email: [sagardia.mikel@gmail.com](mailto:sagardia.mikel@gmail.com)
+- my [LinkedIn profile](https://www.linkedin.com/in/mikel-sagardia/),
+- my [website/blog](https://mikelsagardia.io), which features some of my past works,
+- and my [Google Scholar profile](https://scholar.google.com/citations?user=DAP30jYAAAAJ).
+
+See you around!
+
+Mikel
