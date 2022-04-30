@@ -30,7 +30,7 @@ baseurl: ""      # place folder name if the site is served in a subfolder
 domain: mxagar.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://mxagar.github.io  # the base hostname and protocol for your site, e.g. http://example.com
 twitter_username: mikelsagardia
-github_username:  mxagat
+github_username:  mxagar
 
 # Build settings
 theme: minima
