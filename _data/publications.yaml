@@ -5,6 +5,7 @@
   link: ""
   year: 2018
   note: ""
+  video: ""
 
 - title: Multimodal Evaluation of the Differences between Real and Virtual Assemblies
   author: Mikel Sagardia and Thomas Hulin
@@ -13,6 +14,7 @@
   link: https://ieeexplore.ieee.org/document/8013101
   year: 2017
   note: ""
+  video: ""
 
 - title: Evaluation of a Penalty and a Constraint-Based Haptic Rendering Algorithm with Different Haptic Interfaces and Stiffness Values
   author: Mikel Sagardia and Thomas Hulin
@@ -21,6 +23,7 @@
   link: ""
   year: 2017
   note: ""
+  video: ""
 
 # @STRING{ASTRA = {Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)}}
 # @STRING{ICRA = {Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)}}
