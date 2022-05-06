@@ -1,0 +1,175 @@
+- title: Realtime Collision Avoidance for Mechanisms with Complex Geometries
+  author: Mikel Sagardia and Alexander Martín Turrillas and Thomas Hulin
+  journal: Proc. IEEE Virtual Reality (VR)
+  doi: ""
+  link: ""
+  year: 2018
+  note: ""
+
+- title: Multimodal Evaluation of the Differences between Real and Virtual Assemblies
+  author: Mikel Sagardia and Thomas Hulin
+  journal: IEEE Trans. on Haptics
+  doi: "DOI: 10.1109/TOH.2017.2741488"
+  link: https://ieeexplore.ieee.org/document/8013101
+  year: 2017
+  note: ""
+
+- title: Evaluation of a Penalty and a Constraint-Based Haptic Rendering Algorithm with Different Haptic Interfaces and Stiffness Values
+  author: Mikel Sagardia and Thomas Hulin
+  journal: Proc. IEEE Virtual Reality (VR)
+  doi: ""
+  link: ""
+  year: 2017
+  note: ""
+
+# @STRING{ASTRA = {Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)}}
+# @STRING{ICRA = {Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)}}
+# @STRING{SIGGRAPH = {Proc. ACM SIGGRAPH}}
+# @STRING{SYMP3DUI = {Proc. IEEE Symposium on 3D User Interfaces (3DUI)}}
+# @STRING{TH = {IEEE Trans. on Haptics}}
+# @STRING{VRST = {Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)}}
+# @STRING{VR = {Proc. IEEE Virtual Reality (VR)}}
+
+
+# @INPROCEEDINGS{Sagardia_GodObject_VRST_2016,
+#   author = {Mikel Sagardia and Thomas Hulin},
+#   title = {A Fast and Robust Six-DoF God Object Heuristic for Haptic Rendering of Complex Models with Friction},
+#   booktitle = VRST,
+#   year={2016},
+#   pages={163--172},
+#   organization={ACM}
+# }
+
+# @INPROCEEDINGS{Sagardia_VirtualAssemblySequence_VRST_2016,
+#   author = {Mikel Sagardia and Thomas Hulin and Katharina Hertkorn and Philipp Kremer and Simon Sch\"{a}tzle},
+#   title = {A Platform for Bimanual Virtual Assembly Training with Haptic Feedback in Large Multi-Object Environments},
+#   booktitle = VRST,
+#   year={2016},
+#   pages={153--162},
+#   organization={ACM}
+# }
+
+# @inproceedings{NottensteinerSagardia_NarrowPassageAssembly_ICRA_2016,
+#   title = {Narrow Passage Sampling in the Observation of Robotic Assembly Tasks},
+#   author = {Korbinian Nottensteiner and Mikel Sagardia and Andreas Stemmer and Christoph Borst},
+#   booktitle = ICRA,
+#   year = {2016}
+# }
+
+# @inproceedings{JaekelSagardia_eDeorbit_2015,
+#   author = {Steffen Jaekel and Roberto Lampariello and Giorgio Panin and Mikel Sagardia and Bernhard Brunner and Oliver Porges and Erich Kraemer and Matthias Wieser and Richard Haarmann and Markus Pietras and Robin Biesbroek},
+#   title = {Robotic Capture and De-Orbit of a Heavy, Uncooperative and Tumbeling Target Satellite in Low Earth Orbit},
+#   booktitle = ASTRA,
+#   year = {2015}
+# }
+
+# @inproceedings{Sagardia_VROOS_Paper_2015,
+#   author = {Mikel Sagardia and Katharina Hertkorn and Thomas Hulin and Simon Sch\"atzle and Robin Wolff and Johannes Hummel and Janki Dodiya and Andreas Gerndt},
+#   title = {VR-OOS: The DLR's Virtual Reality Simulator for Telerobotic On-Orbit Servicing With Haptic Feedback},
+#   booktitle = {IEEE Aerospace Conference},
+#   year = {2015}
+# }
+
+# @inproceedings{Sagardia_Bullet_Paper_2014,
+#   author = {Mikel Sagardia and Theodoros Stouraitis and Jo\~ao Lopes e Silva},
+#   title = {A New Fast and Robust Collision Detection and Force Computation Algorithm Applied to the Physics Engine Bullet: Method, Integration, and Evaluation},
+#   booktitle = {Conference and Exhibition of the European Association of Virtual and Augmented Reality (EuroVR)},
+#   year = {2014}
+# }
+
+# @inproceedings{Sagardia_Ultrapiano_Paper_2014,
+#   author = {Claudio Castellini and Katharina Hertkorn and Mikel Sagardia and David Sierra Gonz\'alez and Markus Nowak},
+#   title = {A Virtual Piano-Playing Environment for Rehabilitation Based upon Ultrasound Imaging},
+#   booktitle = {IEEE International Conference on Biomedical Robotics and Biomechatronics (BioRob)},
+#   year = {2014}
+# }
+
+# @inproceedings{Sagardia_Ultrapiano_Video_2014,
+#   author = {Mikel Sagardia and Katharina Hertkorn and David Sierra Gonz\'alez and Claudio Castellini},
+#   title = {Ultrapiano: A Novel Human-Machine Interface Applied to Virtual Reality (Video)},
+#   booktitle = ICRA,
+#   note = {\textbf{Best Video Award Finalist}},
+#   year = {2014}
+# }
+
+# @inproceedings{Sagardia_Bullet_Poster_2014,
+#   author = {Mikel Sagardia and Theodoros Stouraitis and Jo\~ao Lopes e Silva},
+#   title = {Integration of a Haptic Rendering Algorithm Based on Voxelized and Point-Sampled Structures into the Physics Engine Bullet (Poster)},
+#   booktitle = SYMP3DUI,
+#   year = {2014}
+# }
+
+# @incollection{Doerner_VR_Book_2013,
+#   author      = {Ralf D\"orner and Geert Matthys and Manfred Bogen and Stefan Rilling and Andreas Gerndt and Janki Dodiya and Katharina Hertkorn and Thomas Hulin and Johannes Hummel and Mikel Sagardia and Robin Wolff and Tom K\"uhnert and Guido Brunnett and Hagen Buchholz and Lisa Blum and Christoffer Menk and Christian Bade and Werner Schreiber and Matthias Greiner and Thomas Alexander and Michael Kleiber and Gerd Bruder and Frank Steinicke},
+#   title       = {Fallbeispiele f\"ur VR/AR (Book Chapter)},
+#   editor      = {Ralf D\"orner and Wolfgang Broll and Paul Grimm and Bernhard Jung},
+#   booktitle   = {Virtual und Augmented Reality (VR / AR)},
+#   publisher   = {Springer Berlin Heidelberg},
+#   year        = {2013}
+# }
+
+
+# @inproceedings{WeberSagardia_VW_2013,
+#   author = {Bernhard Weber and Mikel Sagardia and Thomas Hulin and Carsten Preusche},
+#   title = {Visual, Vibrotactile, and Force Feedback of Collisions in Virtual Environments: Effects on Performance, Mental Workload and Spatial Orientation},
+#   booktitle = {International Conference on Virtual Augmented and Mixed Reality},
+#   note = {\textbf{Best Paper Award}},
+#   year = {2013}
+# }
+
+# @inproceedings{Sagardia_SIGGRAPH_Poster_2013,
+#   author = {Mikel Sagardia and Thomas Hulin},
+#   title = {Fast and Accurate Distance, Penetration, and Collision Queries Using Point-Sphere Trees and Distance Fields (Poster)},
+#   booktitle = {ACM SIGGRAPH},
+#   year = {2013}
+# }
+
+# @inproceedings{Sagardia_VROOS_Video_2013,
+#   author = {Mikel Sagardia and Katharina Hertkorn and Thomas Hulin and Robin Wolff and Johannes Hummel and Janki Dodiya and Andreas Gerndt},
+#   title = {An Interactive Virtual Reality System for On-Orbit Servicing (Video)},
+#   booktitle = VR,
+#   year = {2013}
+# }
+
+# @inproceedings{Sagardia_VW_2012,
+#   author = {Mikel Sagardia and Bernhard Weber and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
+#   title = {Evaluation of Visual and Force Feedback in Virtual Assembly Verifications},
+#   booktitle = VR,
+#   note = {\textbf{Short Paper Honorable Mention}},
+#   year = {2012}
+# }
+
+# @inproceedings{Hulin_HUG_Video_2012,
+#   author = {Thomas Hulin and Katharina Hertkorn and Philipp Kremer and  Carsten Preusche and Simon Sch\"atzle and Jordi Artigas and Mikel Sagardia and Franziska Zacharias},
+#   title = {The DLR Bimanual Haptic Device with Optimized Workspace (Video)},
+#   booktitle = ICRA,
+#   year = {2011}
+# }
+
+# @inproceedings{Weller_Benchmarking_2011,
+#   author = {Rene Weller and David Mainzer and Gabriel Zachmann and Mikel Sagardia and Thomas Hulin and Carsten Preusche},
+#   title = {A Benchmarking Suite for 6-DOF Real Time Collision Response Algorithms},
+#   booktitle = VRST,
+#   year = {2010}
+# }
+
+# @inproceedings{Sagardia_Benchmarking_2009,
+#   author = {Mikel Sagardia and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
+#   title = {A Benchmark of Force Quality in Haptic Rendering (Poster)},
+#   booktitle = {Human Computer Interaction International},
+#   year = {2009}
+# }
+
+# @inproceedings{Hulin_HUG_2008,
+#   author = {Thomas Hulin and Mikel Sagardia and Jordi Artigas and Simon Sch\"atzle and Philipp Kremer and Carsten Preusche},
+#   title = {Human-Scale Bimanual Haptic Interface},
+#   booktitle = {International Conference on Enactive Interfaces},
+#   year = {2008}
+# }
+
+# @inproceedings{Sagardia_VPS_2008,
+#   author = {Mikel Sagardia and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
+#   title = {Improvements of the Voxmap-PointShell Algorithm - Fast Generation of Haptic Data-Structures},
+#   booktitle = {Internationales Wissenschaftliches Kolloquium},
+#   year = {2008}
+# }
