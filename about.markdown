@@ -16,19 +16,21 @@ I have a PhD in the intersection between robotics, virtual simulations and human
 - **machine learning**,
 - and **data science**.
 
-Currently, I'm collaborating with a limited number of teams as an external consultant. At the same time, I'm learning and building business ideas.
+Currently, I'm on a leave of absence from my role as senior researcher at [Vicomtech](https://www.vicomtech.org/en). During this sabbatical I'll be collaborating with a limited number of teams as an external consultant. At the same time, I'm learning and building business ideas.
 
-Previously, I have lived in Munich (Germany) for over 14 years -- bitte gleich auf Deutsch mit mir! There, I worked at the German Aerospace Center (where the KUKA cobot was orginally conceived) and MVTec (where the great Halcon machine vision toolkit is crafted).
+Previously, I have lived in Munich (Germany) for over 14 years -- bitte gleich auf Deutsch mit mir! There, I worked at the [German Aerospace Center](https://www.dlr.de/rm/en/desktopdefault.aspx/tabid-8017) (where the game-changer KUKA cobot was orginally conceived) and [MVTec](https://www.mvtec.com) (where the great Halcon machine vision toolkit is crafted).
 
 You can reach out to me or get more information about me via 
 
 - my email: [sagardia.mikel@gmail.com](mailto:sagardia.mikel@gmail.com)
 - my [LinkedIn profile](https://www.linkedin.com/in/mikel-sagardia/),
-- this [website/blog](https://mikelsagardia.io), which features some of my past works,
+- the current [website/blog](https://mikelsagardia.io), which features some of my [works]({{ site.url }}/projects/),
+- my [Youtube channel](https://www.youtube.com/channel/UC3OPk0A1X0Hc3_1rNl-AAcw),
 - and my [Google Scholar profile](https://scholar.google.com/citations?user=DAP30jYAAAAJ).
 
 See you around!
 
-Mikel
+Mikel,
+April 2022
 
 PS: If you want to know more personal stuff, click [here]({{ site.url }}/personal/).
