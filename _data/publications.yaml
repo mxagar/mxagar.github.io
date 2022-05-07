@@ -151,53 +151,56 @@
   note: ""
   video: "https://youtu.be/D9Jbew5Zmpw"
 
-# @STRING{ASTRA = {Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)}}
-# @STRING{ICRA = {Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)}}
-# @STRING{SIGGRAPH = {Proc. ACM SIGGRAPH}}
-# @STRING{SYMP3DUI = {Proc. IEEE Symposium on 3D User Interfaces (3DUI)}}
-# @STRING{TH = {IEEE Trans. on Haptics}}
-# @STRING{VRST = {Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)}}
-# @STRING{VR = {Proc. IEEE Virtual Reality (VR)}}
+- title: "Evaluation of Visual and Force Feedback in Virtual Assembly Verifications"
+  author: Mikel Sagardia, Bernhard Weber, Thomas Hulin, Carsten Preusche and Gerd Hirzinger
+  journal: Proc. IEEE Virtual Reality (VR)
+  doi: "10.1109/VR.2012.6180872"
+  link: "https://ieeexplore.ieee.org/document/6180872"
+  year: 2012
+  note: "Short Paper Honorable Mention"
+  video: ""
 
-# @inproceedings{Sagardia_VW_2012,
-#   author = {Mikel Sagardia and Bernhard Weber and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
-#   title = {Evaluation of Visual and Force Feedback in Virtual Assembly Verifications},
-#   booktitle = VR,
-#   note = {\textbf{Short Paper Honorable Mention}},
-#   year = {2012}
-# }
+- title: "The DLR Bimanual Haptic Device with Optimized Workspace"
+  author: Thomas Hulin, Katharina Hertkorn, Philipp Kremer, Carsten Preusche, Simon Schätzle, Jordi Artigas, Mikel Sagardia and Franziska Zacharias
+  journal: Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)
+  doi: "10.1109/ICRA.2011.5980066"
+  link: "https://ieeexplore.ieee.org/document/5980066"
+  year: 2011
+  note: ""
+  video: ""
 
-# @inproceedings{Hulin_HUG_Video_2012,
-#   author = {Thomas Hulin and Katharina Hertkorn and Philipp Kremer and  Carsten Preusche and Simon Sch\"atzle and Jordi Artigas and Mikel Sagardia and Franziska Zacharias},
-#   title = {The DLR Bimanual Haptic Device with Optimized Workspace (Video)},
-#   booktitle = ICRA,
-#   year = {2011}
-# }
+- title: "A Benchmarking Suite for 6-DOF Real Time Collision Response Algorithms"
+  author: Rene Weller, David Mainzer, Gabriel Zachmann, Mikel Sagardia, Thomas Hulin and Carsten Preusche
+  journal: Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)
+  doi: "10.1145/1889863.1889874"
+  link: "https://dl.acm.org/doi/10.1145/1889863.1889874"
+  year: 2010
+  note: ""
+  video: ""
 
-# @inproceedings{Weller_Benchmarking_2011,
-#   author = {Rene Weller and David Mainzer and Gabriel Zachmann and Mikel Sagardia and Thomas Hulin and Carsten Preusche},
-#   title = {A Benchmarking Suite for 6-DOF Real Time Collision Response Algorithms},
-#   booktitle = VRST,
-#   year = {2010}
-# }
+- title: "A Benchmark of Force Quality in Haptic Rendering"
+  author: Mikel Sagardia, Thomas Hulin, Carsten Preusche and Gerd Hirzinger
+  journal: Human Computer Interaction International
+  doi: ""
+  link: "https://elib.dlr.de/62753/"
+  year: 2009
+  note: ""
+  video: ""
 
-# @inproceedings{Sagardia_Benchmarking_2009,
-#   author = {Mikel Sagardia and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
-#   title = {A Benchmark of Force Quality in Haptic Rendering (Poster)},
-#   booktitle = {Human Computer Interaction International},
-#   year = {2009}
-# }
+- title: "Human-Scale Bimanual Haptic Interface"
+  author: Thomas Hulin, Mikel Sagardia, Jordi Artigas, Simon Schätzle, Philipp Kremer and Carsten Preusche
+  journal: International Conference on Enactive Interfaces
+  doi: ""
+  link: "https://elib.dlr.de/55612/"
+  year: 2008
+  note: ""
+  video: ""
 
-# @inproceedings{Hulin_HUG_2008,
-#   author = {Thomas Hulin and Mikel Sagardia and Jordi Artigas and Simon Sch\"atzle and Philipp Kremer and Carsten Preusche},
-#   title = {Human-Scale Bimanual Haptic Interface},
-#   booktitle = {International Conference on Enactive Interfaces},
-#   year = {2008}
-# }
-
-# @inproceedings{Sagardia_VPS_2008,
-#   author = {Mikel Sagardia and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},
-#   title = {Improvements of the Voxmap-PointShell Algorithm - Fast Generation of Haptic Data-Structures},
-#   booktitle = {Internationales Wissenschaftliches Kolloquium},
-#   year = {2008}
-# }
+- title: "Improvements of the Voxmap-PointShell Algorithm - Fast Generation of Haptic Data-Structures"
+  author: Mikel Sagardia, Thomas Hulin, Carsten Preusche and Gerd Hirzinger
+  journal: Internationales Wissenschaftliches Kolloquium
+  doi: ""
+  link: "https://elib.dlr.de/55619/"
+  year: 2008
+  note: ""
+  video: ""
