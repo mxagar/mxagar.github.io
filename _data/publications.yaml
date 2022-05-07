@@ -1,29 +1,101 @@
 - title: Realtime Collision Avoidance for Mechanisms with Complex Geometries
-  author: Mikel Sagardia and Alexander Martín Turrillas and Thomas Hulin
+  author: Mikel Sagardia, Alexander Martín Turrillas and Thomas Hulin
   journal: Proc. IEEE Virtual Reality (VR)
-  doi: ""
-  link: ""
+  doi: "10.1109/VR.2018.8446527"
+  link: "https://ieeexplore.ieee.org/document/8446527"
   year: 2018
   note: ""
-  video: ""
+  video: "https://youtu.be/OqWwkPrrcII"
 
 - title: Multimodal Evaluation of the Differences between Real and Virtual Assemblies
   author: Mikel Sagardia and Thomas Hulin
   journal: IEEE Trans. on Haptics
-  doi: "DOI: 10.1109/TOH.2017.2741488"
+  doi: "10.1109/TOH.2017.2741488"
   link: https://ieeexplore.ieee.org/document/8013101
   year: 2017
   note: ""
-  video: ""
+  video: "https://youtu.be/En_IXwSNVco"
 
 - title: Evaluation of a Penalty and a Constraint-Based Haptic Rendering Algorithm with Different Haptic Interfaces and Stiffness Values
   author: Mikel Sagardia and Thomas Hulin
   journal: Proc. IEEE Virtual Reality (VR)
-  doi: ""
-  link: ""
+  doi: "10.1109/VR.2017.7892232"
+  link: "https://ieeexplore.ieee.org/document/7892232"
   year: 2017
   note: ""
+  video: "https://youtu.be/mBp8tuU-WHc"
+
+- title: A Fast and Robust Six-DoF God Object Heuristic for Haptic Rendering of Complex Models with Friction
+  author: Mikel Sagardia and Thomas Hulin
+  journal: Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)
+  doi: "10.1145/2993369.2993374"
+  link: "https://dl.acm.org/doi/10.1145/2993369.2993374"
+  year: 2016
+  note: ""
+  video: "https://youtu.be/E4So2K-cjmM"
+
+- title: A Platform for Bimanual Virtual Assembly Training with Haptic Feedback in Large Multi-Object Environments
+  author: Mikel Sagardia, Thomas Hulin, Katharina Hertkorn, Philipp Kremer and Simon Schätzle
+  journal: Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)
+  doi: "10.1145/2993369.2993386"
+  link: "https://dl.acm.org/doi/10.1145/2993369.2993386"
+  year: 2016
+  note: ""
+  video: "https://youtu.be/marxNRb4e-c"
+
+- title: Narrow Passage Sampling in the Observation of Robotic Assembly Tasks
+  author: Korbinian Nottensteiner, Mikel Sagardia, Andreas Stemmer and Christoph Borst
+  journal: Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)
+  doi: "10.1109/ICRA.2016.7487125"
+  link: "https://ieeexplore.ieee.org/abstract/document/7487125"
+  year: 2016
+  note: ""
   video: ""
+
+- title: Robotic Capture and De-Orbit of a Heavy, Uncooperative and Tumbeling Target Satellite in Low Earth Orbit
+  author: Steffen Jaekel, Roberto Lampariello, Giorgio Panin, Mikel Sagardia, Bernhard Brunner, Oliver Porges, Erich Kraemer, Matthias Wieser, Richard Haarmann, Markus Pietras and Robin Biesbroek
+  journal: Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)
+  doi: ""
+  link: "https://www.researchgate.net/publication/312195252_Robotic_Capture_and_De-Orbit_of_a_Heavy_Uncooperative_and_Tumbling_Target_in_Low_Earth_Orbit"
+  year: 2015
+  note: ""
+  video: ""
+
+- title: "VR-OOS: The DLR's Virtual Reality Simulator for Telerobotic On-Orbit Servicing With Haptic Feedback"
+  author: Mikel Sagardia, Katharina Hertkorn, Thomas Hulin, Simon Schätzle, Robin Wolff, Johannes Hummel, Janki Dodiya and Andreas Gerndt
+  journal: IEEE Aerospace Conference
+  doi: "10.1109/AERO.2015.7119040"
+  link: "https://ieeexplore.ieee.org/document/7119040"
+  year: 2015
+  note: ""
+  video: "https://youtu.be/D9Jbew5Zmpw"
+
+- title: "A New Fast and Robust Collision Detection and Force Computation Algorithm Applied to the Physics Engine Bullet: Method, Integration, and Evaluation"
+  author: Mikel Sagardia, Theodoros Stouraitis and João Lopes e Silva
+  journal: Conference and Exhibition of the European Association of Virtual and Augmented Reality (EuroVR)
+  doi: "10.2312/eurovr.20141341"
+  link: "https://diglib.eg.org/handle/10.2312/eurovr.20141341.065-076"
+  year: 2014
+  note: ""
+  video: "https://youtu.be/Fsb0f1t4IbE"
+
+- title: "A Virtual Piano-Playing Environment for Rehabilitation Based upon Ultrasound Imaging"
+  author: Claudio Castellini, Katharina Hertkorn, Mikel Sagardia, David Sierra González and Markus Nowak
+  journal: IEEE International Conference on Biomedical Robotics and Biomechatronics (BioRob)
+  doi: "10.1109/BIOROB.2014.6913835"
+  link: "https://ieeexplore.ieee.org/document/6913835"
+  year: 2014
+  note: ""
+  video: "https://youtu.be/1yoU1f_zwiY"
+
+- title: "Ultrapiano: A Novel Human-Machine Interface Applied to Virtual Reality"
+  author: Mikel Sagardia, Katharina Hertkorn, David Sierra González and Claudio Castellini
+  journal: Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)
+  doi: "10.1109/ICRA.2014.6907142"
+  link: "https://ieeexplore.ieee.org/document/6907142"
+  year: 2014
+  note: "<u>Best video award finalist</u>"
+  video: "https://youtu.be/1yoU1f_zwiY"
 
 # @STRING{ASTRA = {Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)}}
 # @STRING{ICRA = {Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)}}
@@ -32,68 +104,6 @@
 # @STRING{TH = {IEEE Trans. on Haptics}}
 # @STRING{VRST = {Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)}}
 # @STRING{VR = {Proc. IEEE Virtual Reality (VR)}}
-
-
-# @INPROCEEDINGS{Sagardia_GodObject_VRST_2016,
-#   author = {Mikel Sagardia and Thomas Hulin},
-#   title = {A Fast and Robust Six-DoF God Object Heuristic for Haptic Rendering of Complex Models with Friction},
-#   booktitle = VRST,
-#   year={2016},
-#   pages={163--172},
-#   organization={ACM}
-# }
-
-# @INPROCEEDINGS{Sagardia_VirtualAssemblySequence_VRST_2016,
-#   author = {Mikel Sagardia and Thomas Hulin and Katharina Hertkorn and Philipp Kremer and Simon Sch\"{a}tzle},
-#   title = {A Platform for Bimanual Virtual Assembly Training with Haptic Feedback in Large Multi-Object Environments},
-#   booktitle = VRST,
-#   year={2016},
-#   pages={153--162},
-#   organization={ACM}
-# }
-
-# @inproceedings{NottensteinerSagardia_NarrowPassageAssembly_ICRA_2016,
-#   title = {Narrow Passage Sampling in the Observation of Robotic Assembly Tasks},
-#   author = {Korbinian Nottensteiner and Mikel Sagardia and Andreas Stemmer and Christoph Borst},
-#   booktitle = ICRA,
-#   year = {2016}
-# }
-
-# @inproceedings{JaekelSagardia_eDeorbit_2015,
-#   author = {Steffen Jaekel and Roberto Lampariello and Giorgio Panin and Mikel Sagardia and Bernhard Brunner and Oliver Porges and Erich Kraemer and Matthias Wieser and Richard Haarmann and Markus Pietras and Robin Biesbroek},
-#   title = {Robotic Capture and De-Orbit of a Heavy, Uncooperative and Tumbeling Target Satellite in Low Earth Orbit},
-#   booktitle = ASTRA,
-#   year = {2015}
-# }
-
-# @inproceedings{Sagardia_VROOS_Paper_2015,
-#   author = {Mikel Sagardia and Katharina Hertkorn and Thomas Hulin and Simon Sch\"atzle and Robin Wolff and Johannes Hummel and Janki Dodiya and Andreas Gerndt},
-#   title = {VR-OOS: The DLR's Virtual Reality Simulator for Telerobotic On-Orbit Servicing With Haptic Feedback},
-#   booktitle = {IEEE Aerospace Conference},
-#   year = {2015}
-# }
-
-# @inproceedings{Sagardia_Bullet_Paper_2014,
-#   author = {Mikel Sagardia and Theodoros Stouraitis and Jo\~ao Lopes e Silva},
-#   title = {A New Fast and Robust Collision Detection and Force Computation Algorithm Applied to the Physics Engine Bullet: Method, Integration, and Evaluation},
-#   booktitle = {Conference and Exhibition of the European Association of Virtual and Augmented Reality (EuroVR)},
-#   year = {2014}
-# }
-
-# @inproceedings{Sagardia_Ultrapiano_Paper_2014,
-#   author = {Claudio Castellini and Katharina Hertkorn and Mikel Sagardia and David Sierra Gonz\'alez and Markus Nowak},
-#   title = {A Virtual Piano-Playing Environment for Rehabilitation Based upon Ultrasound Imaging},
-#   booktitle = {IEEE International Conference on Biomedical Robotics and Biomechatronics (BioRob)},
-#   year = {2014}
-# }
-
-# @inproceedings{Sagardia_Ultrapiano_Video_2014,
-#   author = {Mikel Sagardia and Katharina Hertkorn and David Sierra Gonz\'alez and Claudio Castellini},
-#   title = {Ultrapiano: A Novel Human-Machine Interface Applied to Virtual Reality (Video)},
-#   booktitle = ICRA,
-#   note = {\textbf{Best Video Award Finalist}},
-#   year = {2014}
-# }
 
 # @inproceedings{Sagardia_Bullet_Poster_2014,
 #   author = {Mikel Sagardia and Theodoros Stouraitis and Jo\~ao Lopes e Silva},
