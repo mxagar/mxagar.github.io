@@ -24,9 +24,11 @@ You can reach out to me or get more information about me via
 
 - my email: [sagardia.mikel@gmail.com](mailto:sagardia.mikel@gmail.com)
 - my [LinkedIn profile](https://www.linkedin.com/in/mikel-sagardia/),
-- my [website/blog](https://mikelsagardia.io), which features some of my past works,
+- this [website/blog](https://mikelsagardia.io), which features some of my past works,
 - and my [Google Scholar profile](https://scholar.google.com/citations?user=DAP30jYAAAAJ).
 
 See you around!
 
 Mikel
+
+PS: If you want to know more personal stuff, click [here]({{ site.url }}/personal/).
