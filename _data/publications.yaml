@@ -1,3 +1,12 @@
+- title: Virtual Manipulations with Force Feedback in Complex Interaction Scenarios
+  author: Mikel Sagardia
+  journal: PhD Dissertation, Technische Universität München (TUM)
+  doi: ""
+  link: "https://elib.dlr.de/132879/"
+  year: 2019
+  note: ""
+  video: ""
+
 - title: Realtime Collision Avoidance for Mechanisms with Complex Geometries
   author: Mikel Sagardia, Alexander Martín Turrillas and Thomas Hulin
   journal: Proc. IEEE Virtual Reality (VR)
@@ -97,6 +106,51 @@
   note: "<u>Best video award finalist</u>"
   video: "https://youtu.be/1yoU1f_zwiY"
 
+- title: "Integration of a Haptic Rendering Algorithm Based on Voxelized and Point-Sampled Structures into the Physics Engine Bullet"
+  author: Mikel Sagardia, Theodoros Stouraitis and João Lopes e Silva
+  journal: Proc. IEEE Symposium on 3D User Interfaces (3DUI)
+  doi: "10.1109/3DUI.2014.6798856"
+  link: "https://ieeexplore.ieee.org/document/6798856"
+  year: 2014
+  note: ""
+  video: "https://youtu.be/Fsb0f1t4IbE"
+
+- title: "Fallbeispiele für VR/AR (Book Chapter)"
+  author: Ralf Dörner, Geert Matthys, Manfred Bogen, Stefan Rilling, Andreas Gerndt, Janki Dodiya, Katharina Hertkorn, Thomas Hulin, Johannes Hummel, Mikel Sagardia, Robin Wolff, Tom Kühnert, Guido Brunnett, Hagen Buchholz, Lisa Blum, Christoffer Menk, Christian Bade, Werner Schreiber, Matthias Greiner, Thomas Alexander, Michael Kleiber, Gerd Bruder and Frank Steinicke
+  journal: Virtual und Augmented Reality (VR / AR), published by Springer Berlin Heidelberg
+  doi: "10.1007/978-3-662-58861-1_9"
+  link: "https://link.springer.com/chapter/10.1007/978-3-662-58861-1_9"
+  year: 2013
+  note: ""
+  video: ""
+
+- title: "Visual, Vibrotactile, and Force Feedback of Collisions in Virtual Environments: Effects on Performance, Mental Workload and Spatial Orientation"
+  author: Bernhard Weber, Mikel Sagardia, Thomas Hulin and Carsten Preusche
+  journal: International Conference on Virtual Augmented and Mixed Reality
+  doi: "10.1007/978-3-642-39405-8_28"
+  link: "https://link.springer.com/chapter/10.1007/978-3-642-39405-8_28"
+  year: 2013
+  note: "<u>Best paper award</u>"
+  video: ""
+
+- title: "Fast and Accurate Distance, Penetration, and Collision Queries Using Point-Sphere Trees and Distance Fields"
+  author: Mikel Sagardia and Thomas Hulin
+  journal: Proc. ACM SIGGRAPH
+  doi: "10.1145/2503385.2503476"
+  link: "https://dl.acm.org/doi/abs/10.1145/2503385.2503476"
+  year: 2013
+  note: ""
+  video: ""
+
+- title: "An Interactive Virtual Reality System for On-Orbit Servicing"
+  author: Mikel Sagardia, Katharina Hertkorn, Thomas Hulin, Robin Wolff, Johannes Hummel, Janki Dodiya and Andreas Gerndt
+  journal: Proc. IEEE Virtual Reality (VR)
+  doi: "10.1109/VR.2013.6549444"
+  link: "https://ieeexplore.ieee.org/document/6549444"
+  year: 2013
+  note: ""
+  video: "https://youtu.be/D9Jbew5Zmpw"
+
 # @STRING{ASTRA = {Proc. Symp. on Advanced Space Technologies in Robotics and Automation (ASTRA)}}
 # @STRING{ICRA = {Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)}}
 # @STRING{SIGGRAPH = {Proc. ACM SIGGRAPH}}
@@ -104,45 +158,6 @@
 # @STRING{TH = {IEEE Trans. on Haptics}}
 # @STRING{VRST = {Proc. ACM Symp. on Virtual Reality and Software Technology (VRST)}}
 # @STRING{VR = {Proc. IEEE Virtual Reality (VR)}}
-
-# @inproceedings{Sagardia_Bullet_Poster_2014,
-#   author = {Mikel Sagardia and Theodoros Stouraitis and Jo\~ao Lopes e Silva},
-#   title = {Integration of a Haptic Rendering Algorithm Based on Voxelized and Point-Sampled Structures into the Physics Engine Bullet (Poster)},
-#   booktitle = SYMP3DUI,
-#   year = {2014}
-# }
-
-# @incollection{Doerner_VR_Book_2013,
-#   author      = {Ralf D\"orner and Geert Matthys and Manfred Bogen and Stefan Rilling and Andreas Gerndt and Janki Dodiya and Katharina Hertkorn and Thomas Hulin and Johannes Hummel and Mikel Sagardia and Robin Wolff and Tom K\"uhnert and Guido Brunnett and Hagen Buchholz and Lisa Blum and Christoffer Menk and Christian Bade and Werner Schreiber and Matthias Greiner and Thomas Alexander and Michael Kleiber and Gerd Bruder and Frank Steinicke},
-#   title       = {Fallbeispiele f\"ur VR/AR (Book Chapter)},
-#   editor      = {Ralf D\"orner and Wolfgang Broll and Paul Grimm and Bernhard Jung},
-#   booktitle   = {Virtual und Augmented Reality (VR / AR)},
-#   publisher   = {Springer Berlin Heidelberg},
-#   year        = {2013}
-# }
-
-
-# @inproceedings{WeberSagardia_VW_2013,
-#   author = {Bernhard Weber and Mikel Sagardia and Thomas Hulin and Carsten Preusche},
-#   title = {Visual, Vibrotactile, and Force Feedback of Collisions in Virtual Environments: Effects on Performance, Mental Workload and Spatial Orientation},
-#   booktitle = {International Conference on Virtual Augmented and Mixed Reality},
-#   note = {\textbf{Best Paper Award}},
-#   year = {2013}
-# }
-
-# @inproceedings{Sagardia_SIGGRAPH_Poster_2013,
-#   author = {Mikel Sagardia and Thomas Hulin},
-#   title = {Fast and Accurate Distance, Penetration, and Collision Queries Using Point-Sphere Trees and Distance Fields (Poster)},
-#   booktitle = {ACM SIGGRAPH},
-#   year = {2013}
-# }
-
-# @inproceedings{Sagardia_VROOS_Video_2013,
-#   author = {Mikel Sagardia and Katharina Hertkorn and Thomas Hulin and Robin Wolff and Johannes Hummel and Janki Dodiya and Andreas Gerndt},
-#   title = {An Interactive Virtual Reality System for On-Orbit Servicing (Video)},
-#   booktitle = VR,
-#   year = {2013}
-# }
 
 # @inproceedings{Sagardia_VW_2012,
 #   author = {Mikel Sagardia and Bernhard Weber and Thomas Hulin and Carsten Preusche and Gerd Hirzinger},

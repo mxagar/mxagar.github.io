@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-You can find an **updated** list of my publications on my [Google Scholar profile][google-scholar]. A **not necessarily updated** list is provided below:
+You can find an updated list of my publications on my [Google Scholar profile][google-scholar]. A **not necessarily updated** list is provided below:
 
 <br>
 
