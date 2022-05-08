@@ -7,7 +7,7 @@
   note: ""
   video: ""
 
-- title: Realtime Collision Avoidance for Mechanisms with Complex Geometries
+- title: Realtime Collision Avoidance for Mechanisms with Complex Geometries (Video)
   author: Mikel Sagardia, Alexander Martín Turrillas and Thomas Hulin
   journal: Proc. IEEE Virtual Reality (VR)
   doi: "10.1109/VR.2018.8446527"
@@ -97,7 +97,7 @@
   note: ""
   video: "https://youtu.be/1yoU1f_zwiY"
 
-- title: "Ultrapiano: A Novel Human-Machine Interface Applied to Virtual Reality"
+- title: "Ultrapiano: A Novel Human-Machine Interface Applied to Virtual Reality (Video)"
   author: Mikel Sagardia, Katharina Hertkorn, David Sierra González and Claudio Castellini
   journal: Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)
   doi: "10.1109/ICRA.2014.6907142"
@@ -106,7 +106,7 @@
   note: "<u>Best video award finalist</u>"
   video: "https://youtu.be/1yoU1f_zwiY"
 
-- title: "Integration of a Haptic Rendering Algorithm Based on Voxelized and Point-Sampled Structures into the Physics Engine Bullet"
+- title: "Integration of a Haptic Rendering Algorithm Based on Voxelized and Point-Sampled Structures into the Physics Engine Bullet (Poster)"
   author: Mikel Sagardia, Theodoros Stouraitis and João Lopes e Silva
   journal: Proc. IEEE Symposium on 3D User Interfaces (3DUI)
   doi: "10.1109/3DUI.2014.6798856"
@@ -133,7 +133,7 @@
   note: "<u>Best paper award</u>"
   video: ""
 
-- title: "Fast and Accurate Distance, Penetration, and Collision Queries Using Point-Sphere Trees and Distance Fields"
+- title: "Fast and Accurate Distance, Penetration, and Collision Queries Using Point-Sphere Trees and Distance Fields (Poster)"
   author: Mikel Sagardia and Thomas Hulin
   journal: Proc. ACM SIGGRAPH
   doi: "10.1145/2503385.2503476"
@@ -142,7 +142,7 @@
   note: ""
   video: ""
 
-- title: "An Interactive Virtual Reality System for On-Orbit Servicing"
+- title: "An Interactive Virtual Reality System for On-Orbit Servicing (Video)"
   author: Mikel Sagardia, Katharina Hertkorn, Thomas Hulin, Robin Wolff, Johannes Hummel, Janki Dodiya and Andreas Gerndt
   journal: Proc. IEEE Virtual Reality (VR)
   doi: "10.1109/VR.2013.6549444"
@@ -157,10 +157,10 @@
   doi: "10.1109/VR.2012.6180872"
   link: "https://ieeexplore.ieee.org/document/6180872"
   year: 2012
-  note: "Short Paper Honorable Mention"
+  note: "<u>Short Paper Honorable Mention</u>"
   video: ""
 
-- title: "The DLR Bimanual Haptic Device with Optimized Workspace"
+- title: "The DLR Bimanual Haptic Device with Optimized Workspace (Video)"
   author: Thomas Hulin, Katharina Hertkorn, Philipp Kremer, Carsten Preusche, Simon Schätzle, Jordi Artigas, Mikel Sagardia and Franziska Zacharias
   journal: Proc. IEEE Int. Conf. on Robotics and Automation (ICRA)
   doi: "10.1109/ICRA.2011.5980066"
@@ -178,7 +178,7 @@
   note: ""
   video: ""
 
-- title: "A Benchmark of Force Quality in Haptic Rendering"
+- title: "A Benchmark of Force Quality in Haptic Rendering (Poster)"
   author: Mikel Sagardia, Thomas Hulin, Carsten Preusche and Gerd Hirzinger
   journal: Human Computer Interaction International
   doi: ""
