@@ -10,3 +10,6 @@ Pictures:
 - München
 - Munitxeko Euskal Etxea
 - DLR
+
+All same size, centered column, wide.
+Small text with links below.
