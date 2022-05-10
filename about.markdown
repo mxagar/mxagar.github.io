@@ -26,7 +26,7 @@ You can reach out to me or get more information about me via
 - my [LinkedIn profile](https://www.linkedin.com/in/mikel-sagardia/),
 - my [Github repositories](https://github.com/mxagar),
 - the current [website/blog](https://mikelsagardia.io), which features some of my [works]({{ site.url }}/projects/),
-- my [Youtube channel](https://www.youtube.com/channel/UC3OPk0A1X0Hc3_1rNl-AAcw),
+- my [Youtube channel](https://www.youtube.com/c/MikelSagardia),
 - and my [Google Scholar profile](https://scholar.google.com/citations?user=DAP30jYAAAAJ).
 
 See you around!
