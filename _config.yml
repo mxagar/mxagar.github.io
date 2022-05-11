@@ -36,6 +36,8 @@ domain: mikelsagardia.io       # if you want to force HTTPS, specify the domain 
 url: https://mikelsagardia.io  # the base hostname and protocol for your site, e.g. http://example.com
 twitter_username: mikelsagardia
 github_username:  mxagar
+youtube_username: MikelSagardia
+linkedin_username: mikel-sagardia
 
 # Markdown (added by Mikel)
 markdown: kramdown

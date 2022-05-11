@@ -6,6 +6,7 @@ Pictures:
 - Unai, June, Ana
 - Panamericana
 - Building cottage
+- Climbing
 - Building house
 - München
 - Munitxeko Euskal Etxea
