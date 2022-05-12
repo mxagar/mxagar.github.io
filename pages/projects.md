@@ -14,6 +14,6 @@ If you are interested in my skills and my experience, please, have a look at my 
 
 Currently, I am building two business projects related to **machine vision** and **machine learning**:
 
-- [datamix.ai](https://github.com/mxagar)
-- [machinevision.academy](https://github.com/mxagar)
+- [datamix.ai](https://datamix.ai)
+- [machinevision.academy](https://machinevision.academy)
 
