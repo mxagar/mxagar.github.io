@@ -22,7 +22,7 @@ Previously, I've lived in Munich (Germany) for over 14 years -- bitte gleich auf
 
 You can reach out to me or get more information about me via 
 
-- my email: [sagardia.mikel@gmail.com](mailto:sagardia.mikel@gmail.com)
+- my email: [{{ site.email }}](mailto:{{ site.email }})
 - my [LinkedIn profile](https://www.linkedin.com/in/mikel-sagardia/),
 - my [Github profile](https://github.com/mxagar), where you can see what I'm [learning](https://github.com/mxagar/course_compilation) and [working on](https://github.com/mxagar/project_compilation),
 - my [Youtube channel](https://www.youtube.com/c/MikelSagardia),
