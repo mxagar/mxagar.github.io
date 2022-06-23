@@ -2,7 +2,7 @@
 layout: post
 title:  "Planning Your Next Vacation in Spain"
 subtitle: "Analysis and Modelling of the AirBnB Dataset from the Basque Country"
-date:   2022-04-30 07:59:29 +0200
+date:   2022-06-23 12:30:00 +0200
 categories: data science, data analysis, exploratory data analysis, feature engineering, data modelling, hypothesis testing, regression, random forests, AirBnB, Basque Country, price prediction
 permalink: /blog/airbnb-spain-basque-data-analysis.html
 comments: true
