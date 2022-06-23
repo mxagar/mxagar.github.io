@@ -142,7 +142,7 @@ Instead of reading the ranking top-down, it is more interesting to compose a *pr
 - their host lives more often nearby,
 - ...
 
-Going back to the price, the following figure shows the different price distributions for accommodations with a beach in less than 2km and further. We need to consider that there is such a distribution or a contingency table behind each of the Z/T statistics in the previous diagram.
+Going back to the price, the following figure shows the different price distributions for accommodations with a beach in less than 2 km and further. We need to consider that there is such a distribution or a contingency table behind each of the Z/T statistics in the previous diagram.
 
 <p align="center">
 <img src="/assets/airbnb_analysis/price_distribution_beach.png" alt="Price distribution for accommodations with and without beach access in less than 2km" width="600"/>
@@ -183,9 +183,9 @@ Finally, as before, I leave the price distribution for both cities, since it is 
 
 ## Conclusions
 
-In this blog post, we took a look at the AirBnB accommodation properties for the Basque Country, narrowing down to these insights:
+In this blog post, we took a look at the AirBnB accommodation properties from the Basque Country, narrowing down to these insights:
 
-1. Even though the price regression models have a moderate R2, we have shown how to detect listings which are candidate to be a bargain: high review scores and predicted price above the true one. Additionally, we have discovered the features with the most impact on the price: type of accommodation, bathrooms, locations, etc.
+1. Even though the price regression models have a moderate R2, we have shown how to detect listings which are candidate to be a bargain: accommodations with high review scores and predicted price above the true one. Additionally, we have discovered the features with the largest impact on the price: type of accommodation, bathrooms, locations, etc.
 2. Listings with a beach in less than 2 km have significantly more entire homes, more balconies, waterfronts and space for more accommodates; this is in line with their larger prices.
 3. The two major cities Donostia-San Sebastian and Bilbao nicely align with the previous synthesis, being Donostia a beach city and Bilbao a city without. Additionally, Bilbao seems to favour other practical domestic amenities.
 
