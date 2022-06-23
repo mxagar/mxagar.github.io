@@ -26,67 +26,13 @@ Following the standard [CRISP-DM process](https://en.wikipedia.org/wiki/Cross-in
 2. **Differences between accommodations with and without beach access**. Surfing or simply enjoying the seaside are probably some important attractions visitors seek on their vacations. However, not all accommodations are a walk distance from a beach. How does that influence the features of the housings?
 3. **Differences between the two most important cities: [Donostia-San Sebastian](https://en.wikipedia.org/wiki/San_Sebastián) and [Bilbao](https://en.wikipedia.org/wiki/Bilbao)**. These province capitals are the biggest and most visited cities in the Basque Country; in fact, their listings account for 50% of all offered accommodations. However, both cities are said to have a different character: Bilbao is a bigger, modern city, without beach access but probably with richer cultural offerings and nightlife; meanwhile, Donostia-San Sebastian is more aesthetic, it has three beaches and it's perfect for day-strolling. How are those popular differences reflected on the features of the accommodations?
 
-In the following, I provide a brief explanatory section on the data processing I carried out. The remainder of the blog post focuses on the three questions introduced above.
-
-## The Dataset and Its Processing
-
-If you'd like go directly to the meat, you can skip this section. Here, I give an overview of most of what is done in all the four notebooks of my [Gihub repository](https://github.com/mxagar/airbnb_data_analysis). Those preliminary steps consist of the data cleaning, the feature engineering and selection and the data modelling.
-
-AirBnB provides with several CSV files for each world region: (1) a listing of properties that offer accommodation, (2) reviews related to the listings, (3) a calendar and (4) geographical data. A detailed description of the features in each file can be found in the official [dataset dictionary](https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit#gid=982310896).
-
-My analysis has concentrated on the listings file, which consists in a table of 5228 rows/entries (i.e., the accommodation places) and 74 columns/features (their attributes). Among the features, we find **continuous variables**, such as:
-
-- the price of the complete accommodation,
-- accommodates: maximum number of persons that can be accommodated,
-- review scores for different dimensions,
-- reviews per month,
-- longitude and latitude,
-- etc.
-
-... **categorical variables**:
-
-- neighbourhood name,
-- property type (apartment, room, hotel, etc.)
-- licenses owned by the host,
-- amenities offered in the accommodation, 
-- etc.
-
-... **date-related data**:
-
-- first and last review dates, 
-- date when the host joined the platform,
-
-... and **image and text data**:
-
-- URL of the listing,
-- URL of the pictures,
-- description of the listing,
-- etc.
-
-Of course, not all features are meaningful to answer the posed questions. Additionally, a preliminary exploratory data analysis shows some peculiarities of the dataset. For instance, in contrast to city datasets like [Seattle](https://www.kaggle.com/datasets/airbnb/seattle) or [Boston](https://www.kaggle.com/datasets/airbnb/boston), the listings from the Basque country are related to a complete state in Spain; hence, the neighbourhoods recorded in them are, in fact, cities or villages spread across a large region. Moreover, the price distribution shows several outliers. Along these lines, I have performed the following simplifications:
-
-- Only the 60 (out of 196) neighbourhoods (i.e., cities and villages) with the most listings have been taken; these account for almost 90% of all listings. That reduction has allowed to manually encode neighbourhood properties, such as whether a village has access to a beach in less than 2 km (Question 2).
-- Only the listings with a price below 1000 USD have been considered.
-- I have dropped the features that are irrelevant for modelling and inference (e.g., URLs and scrapping information).
-- From fields that contain medium length texts (e.g., description), only the language has been identified with [spaCy](https://spacy.io/universe/project/spacy-langdetect). The rest of the text fields have been encoded as categorical features.
-
-One of my first actions with the price was to divide it by the number of maximum accommodates to make it unitary, i.e., USD per person. However, the models underperform. Additionally, both variables don't need to have a linear relationship: maybe the "accommodates" value considers the places on the sofa bed, and the price does not increase if they are used, or not relative to the base unitary price.
-
-As far as the **data cleaning** is considered, only entries that have price (target for Question 1) and review values have been taken. In case of more than 30% of missing values in a feature, that feature has been dropped. In other cases, the missing values have been filled (i.e., imputed) with either the median or the mode.
-
-Additionally, I have applied **feature engineering** methods to almost all variables:
-
-- Any numerical variable with a skewed distribution has been either transformed using logarithmic or power mappings, or binarized.
-- Categorical columns have been [one-hot encoded](https://en.wikipedia.org/wiki/One-hot).
-- All features have been scaled to the region `[0,1]`.
-
-The dataset that results after the feature engineering consists of 3931 entries and 354 features. We have almost 5 times more features than in the beginning even with dropped variables because each class in the categorical variables becomes a feature; in particular, there are many amenities, property types and neighbourhoods.
-
-Finally, in order to prevent overfitting and make the interpretation easier, I have carried out a [lasso regression](https://en.wikipedia.org/wiki/Lasso_(statistics)) to perform **feature selection**. Lasso regression is a L1 regularized regression which forces the model coefficients to converge to 0 if they have small values; subsequently, the features with small coefficient values can be dropped. That reduces the number of variables from 354 to 122. Thus, the final dataset has 3931 entries and 122 features.
+Would like to have a look at what I learned? Let's dive in!
 
 ## Question 1: Prices
 
-I have trained two models with 90% of the processed dataset using [Scikit-Learn](https://scikit-learn.org/stable/): (1) a [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression) model and (2) a [random forests](https://en.wikipedia.org/wiki/Random_forest) model. The latter seems to score the best R2 value: 69% of the variance can be explained with the random decision trees. The following diagram shows the model performance for the test split.
+After the data processing done to the original dataset, we get a new table with 3931 entries and 122 features.
+
+In order check whether we can predict the price, I have trained two models with 90% of that processed dataset using [Scikit-Learn](https://scikit-learn.org/stable/): (1) a [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression) model and (2) a [random forests](https://en.wikipedia.org/wiki/Random_forest) model. The latter seems to score the best R2 value: 69% of the variance can be explained with the random decision trees. The following diagram shows the model performance for the test split.
 
 <p align="center">
 <img src="/assets/airbnb_analysis/regression_evaluation.png" alt="Performance of regression models" width="400"/>
