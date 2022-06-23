@@ -26,13 +26,46 @@ Following the standard [CRISP-DM process](https://en.wikipedia.org/wiki/Cross-in
 2. **Differences between accommodations with and without beach access**. Surfing or simply enjoying the seaside are probably some important attractions visitors seek on their vacations. However, not all accommodations are a walk distance from a beach. How does that influence the features of the housings?
 3. **Differences between the two most important cities: [Donostia-San Sebastian](https://en.wikipedia.org/wiki/San_Sebastián) and [Bilbao](https://en.wikipedia.org/wiki/Bilbao)**. These province capitals are the biggest and most visited cities in the Basque Country; in fact, their listings account for 50% of all offered accommodations. However, both cities are said to have a different character: Bilbao is a bigger, modern city, without beach access but probably with richer cultural offerings and nightlife; meanwhile, Donostia-San Sebastian is more aesthetic, it has three beaches and it's perfect for day-strolling. How are those popular differences reflected on the features of the accommodations?
 
-Would like to have a look at what I learned? Let's dive in!
+## The Dataset
+
+AirBnB provides with several CSV files for each world region: (1) a listing of properties that offer accommodation, (2) reviews related to the listings, (3) a calendar and (4) geographical data. A detailed description of the features in each file can be found in the official [dataset dictionary](https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit#gid=982310896).
+
+My analysis has concentrated on the listings file, which consists in a table of 5228 rows/entries (i.e., the accommodation places) and 74 columns/features (their attributes). Among the features, we find **continuous variables**, such as:
+
+- the price of the complete accommodation,
+- accommodates: maximum number of persons that can be accommodated,
+- review scores for different dimensions,
+- reviews per month,
+- longitude and latitude,
+- etc.
+
+... **categorical variables**:
+
+- neighbourhood name,
+- property type (apartment, room, hotel, etc.)
+- licenses owned by the host,
+- amenities offered in the accommodation, 
+- etc.
+
+... **date-related data**:
+
+- first and last review dates, 
+- date when the host joined the platform,
+
+... and **image and text data**:
+
+- URL of the listing,
+- URL of the pictures,
+- description of the listing,
+- etc.
+
+Of course, not all features are meaningful to answer the posed questions. The notebooks on my [Gihub repository](https://github.com/mxagar/airbnb_data_analysis) explain in detail how I dealt with noisy and missing values, and how some features were dropped and some other engineered. After that processing, we get a new table with 3931 entries and 122 features.
+
+So... Would like to have a look at what I have learned from the data? Let's dive in!
 
 ## Question 1: Prices
 
-After the data processing done to the original dataset, we get a new table with 3931 entries and 122 features.
-
-In order check whether we can predict the price, I have trained two models with 90% of that processed dataset using [Scikit-Learn](https://scikit-learn.org/stable/): (1) a [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression) model and (2) a [random forests](https://en.wikipedia.org/wiki/Random_forest) model. The latter seems to score the best R2 value: 69% of the variance can be explained with the random decision trees. The following diagram shows the model performance for the test split.
+In order check whether we can predict the price, I have trained two models with 90% of the processed dataset using [Scikit-Learn](https://scikit-learn.org/stable/): (1) a [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression) model and (2) a [random forests](https://en.wikipedia.org/wiki/Random_forest) model. The latter seems to score the best R2 value: 69% of the variance can be explained with the random decision trees. The following diagram shows the model performance for the test split.
 
 <p align="center">
 <img src="/assets/airbnb_analysis/regression_evaluation.png" alt="Performance of regression models" width="400"/>
