@@ -13,7 +13,7 @@ comments: true
 
 <p align="center">
 <img src="/assets/airbnb_analysis/san_sebastian_ultrash-ricco-8KCquMrFEPg-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco from Unsplash" width="1000"/>
-<small style="color:grey">Donostia-San Sebastian: Photo by <a href="https://unsplash.com/photos/8KCquMrFEPg">@ultrashricco from Unsplash</a>.</small>
+<small style="color:grey">Donostia-San Sebastian. Photo by <a href="https://unsplash.com/photos/8KCquMrFEPg">@ultrashricco from Unsplash</a>.</small>
 </p>
 
 In 2020 I decided to move back to my birthplace in the [Basque Country](https://en.wikipedia.org/wiki/Basque_Country_(autonomous_community)) (Spain) after almost 15 years in Munich (Germany). The Basque region in Spain is a popular touristic destination, as it has a beautiful seaside with a plethora of surfing spots and alluring hills that call for hiking and climbing adventures. Culture and gastronomy are also important features, both embedded in a friendly and developed society with modern infrastructure.
