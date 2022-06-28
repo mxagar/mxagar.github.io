@@ -2,7 +2,7 @@
 layout: post
 title:  "Practical Recipes for Your Data Processing"
 subtitle: "The 80/20 Guide that Solves Your Data Cleaning, Exploratory Data Analysis and Feature Engineering with Tabular Datasets"
-date:   2022-06-28 12:30:00 +0200
+date:   2022-06-28 09:30:00 +0200
 categories: data science, data analysis, exploratory data analysis, feature engineering, data modelling, hypothesis testing, regression, classification, random forests, summary
 permalink: /blog/data-processing-guide.html
 comments: true
