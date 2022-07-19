@@ -59,13 +59,15 @@ My analysis has concentrated on the listings file, which consists in a table of 
 - description of the listing,
 - etc.
 
-Of course, not all features are meaningful to answer the posed questions. The notebooks on my [Gihub repository](https://github.com/mxagar/airbnb_data_analysis) explain in detail how I dealt with noisy and missing values, and how some features were dropped and some other engineered. After that processing, we get a new table with 3931 entries and 122 features.
+Of course, not all features are meaningful to answer the posed questions. The explanations given on my [Gihub repository](https://github.com/mxagar/airbnb_data_analysis) describe in detail how I dealt with noisy and missing values, and how some features were dropped or some other engineered. After that processing, we get a new table with 3931 entries and 353 features.
 
 So... Would like to have a look at what I have learned from the data? Let's dive in!
 
 ## Question 1: Prices
 
-In order check whether we can predict the price, I have trained two models with 90% of the processed dataset using [Scikit-Learn](https://scikit-learn.org/stable/): (1) a [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression) model and (2) a [random forests](https://en.wikipedia.org/wiki/Random_forest) model. The latter seems to score the best R2 value: 69% of the variance can be explained with the random decision trees. The following diagram shows the model performance for the test split.
+In order check whether we can predict the price, I have trained several models with 90% of the processed dataset (i.e., the training split) using [Scikit-Learn](https://scikit-learn.org/stable/): (1) linear regression as baseline, (2) [Ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) (L2 regularized regression), (3) [Lasso regression](https://en.wikipedia.org/wiki/Lasso_(statistics)) (L1 regularized regression) and (2) [random forests](https://en.wikipedia.org/wiki/Random_forest). [Cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) was performed with all of them and their hyperparameters were tuned; additionally, the effect of polynomial features on the model performances was also studied, as thoroughly summarized on the [Gihub repository](https://github.com/mxagar/airbnb_data_analysis).
+
+The modelling experiments show that the random forests model seems to score the best R2 value for the test split: 69% of the variance can be explained with the random decision trees. Moreover, adding polynomial terms does not improve predictions for the present dataset. The following diagram shows the performance of the Ridge regression model and the random forests model with the test split using only the 353 linear features.
 
 <p align="center">
 <img src="/assets/airbnb_analysis/regression_evaluation.png" alt="Performance of regression models" width="400"/>
@@ -83,7 +85,7 @@ The models tend to under-predict accommodation prices; that bias clearly increas
 <img src="/assets/airbnb_analysis/regression_feature_importance_rf.png" alt="Feature importance: Gini importance values of the random forests model" width="600"/>
 </p>
 
-Note that only the top-30 features are shown; these account for 90% of the accumulated Gini importance (all 122 variables would account for 100%).
+Note that only the top-30 features are shown; these account for almost 89% of the accumulated Gini importance (all 353 variables would account for 100%).
 
 But how does increasing the value of each feature affect the price: does it contribute to an increase in price or a decrease? That can be observed in the following diagram, similar to the previous one. In contrast to the former, here the 30 regression coefficients with the largest magnitude are plotted - red bars are associated with features that decrease the price when they are increased, i.e., negative coefficients.
 
@@ -93,10 +95,9 @@ But how does increasing the value of each feature affect the price: does it cont
 
 Being different models, different features appear in the ranking; in any case, both lists are consistent and provide valuable insights. For instance, we deduce that the price decreases the most when 
 
-- the accommodation is a shared room,
 - the number of reviews per month increases (note that review positivity is not measured),
-- the accommodation is a hostel room,
 - the host is estimated to have shared rooms,
+- the accommodation is a shared room,
 - and when the bathroom(s) is/are shared.
 
 Finally, a very practical insight to close the pricing question: we can easily select the the accommodations which have a very good average review (above the 90% percentile) and yield a model price larger than the real one, as shown in the following figure. These are the likely bargains!
@@ -124,21 +125,21 @@ The sign of the statistic is color-coded: blue bars denote positive statistics, 
 
 Long story short, here's the interpretation: the group of accommodations that have a beach within 2 km have significantly larger
 
-- proportions of accommodations located in the province of Gipuzkoa,
+- proportions of accommodations located in the province of Gipuzkoa, compared to Bizkaia,
 - proportions of accommodations with a waterfront,
 - and prices.
 
-We can continue with the list until the significant differences disappear down in the ranking with the amenity *dishes and silverware*. Note that larger statistics don't necessarily mean larger differences; instead, they mean that the probability of wrongly stating a difference between groups is lower.
+Note that larger statistics don't necessarily mean larger differences; instead, they mean that the probability of wrongly stating a difference between groups is lower.
 
 Instead of reading the ranking top-down, it is more interesting to compose a *profile* of listings with beach access and without by selecting features manually; for instance, the accommodations on the seaside:
 
 - have larger prices,
 - are more often entire homes or apartments,
 - usually have less shared bathrooms,
-- have more often a description in English,
-- have more often patios of balconies,
+- have more often a description in English instead of in Spanish (i.e., they target more foreign tourists),
+- have more often a beachfront, patio or balcony,
 - have more bedrooms,
-- allow for more accommodates,
+- allow for more accommodates but for longer minimum periods,
 - their host lives more often nearby,
 - ...
 
@@ -163,15 +164,17 @@ Donostia-San Sebastian seems to have
 - larger prices,
 - more accommodations with waterfronts,
 - more descriptions in English,
-- more often patios of balconies,
+- hosts that joined AirBnB longer ago and who have more accommodations,
+- more often patios or balconies,
 - more often entire homes or apartments,
 - more space for accommodates,
 - ...
 
 On the other hand, Bilbao has
 
-- more shared bedrooms,
-- more amenities, such as hangers, first aid kits, extra pillows, breakfast
+- more accommodations that are a bedroom,
+- more shared bathrooms,
+- more amenities, such as shampoo, hangers, first aid kits, extra pillows, breakfast
 - ...
 
 Finally, as before, I leave the price distribution for both cities, since it is the feature in which the difference is more significant. We can see that the distribution from Bilbao has more units in the lowest price region, whereas the red city lacks listings with prices above 150 USD, compared to Donostia-San Sebastian. That is in line with several already explained facts, such as that Bilbao has more shared rooms, whereas Donostia has more entire homes, while being the effect on the price of both characteristics the opposite.
@@ -187,7 +190,7 @@ In this blog post, we took a look at the AirBnB accommodation properties from th
 
 1. Even though the price regression models have a moderate R2, we have shown how to detect listings which are candidate to be a bargain: accommodations with high review scores and predicted price above the true one. Additionally, we have discovered the features with the largest impact on the price: type of accommodation, bathrooms, locations, etc.
 2. Listings with a beach in less than 2 km have significantly more entire homes, more balconies, waterfronts and space for more accommodates; this is in line with their larger prices.
-3. The two major cities Donostia-San Sebastian and Bilbao nicely align with the previous synthesis, being Donostia a beach city and Bilbao a city without. Additionally, Bilbao seems to favour other practical domestic amenities.
+3. The two major cities Donostia-San Sebastian and Bilbao nicely align with the previous synthesis, being Donostia a beach city and Bilbao a city without. Additionally, Bilbao seems to favor other practical domestic amenities.
 
 These conclusions are quite informal, but I hope they can guide my data-savvy friends; in any case, I'm sure you can have a great vacation anywhere you go in the Basque Country :)
 
