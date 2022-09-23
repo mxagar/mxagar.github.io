@@ -2,7 +2,7 @@
 layout: post
 title:  "Practical Recipes for Your Data Processing"
 subtitle: "The 80/20 Guide that Solves Your Data Cleaning, Exploratory Data Analysis and Feature Engineering with Tabular Datasets"
-date:   2022-06-28 09:30:00 +0200
+date: 2022-06-28 09:30:00 +0200
 categories: data science, data analysis, exploratory data analysis, feature engineering, data modelling, hypothesis testing, regression, classification, random forests, summary
 permalink: /blog/data-processing-guide.html
 comments: true
@@ -11,9 +11,13 @@ comments: true
 <h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
 </h1>
 
+<div style="line-height:150%;">
+    <br>
+</div>
+
 <p align="center">
-<img src="/assets/data_processing_guide/tim-gouw-1K9T5YiZ2WU-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco from Unsplash" width="1000"/>
-<small style="color:grey">Don't worry, working hard often pays off. Photo by <a href="https://unsplash.com/photos/1K9T5YiZ2WU">Tim Gouw from Unsplash</a>.</small>
+<img src="/assets/data_processing_guide/tim-gouw-1K9T5YiZ2WU-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco on Unsplash" width="1000"/>
+<small style="color:grey">Don't worry, working hard often pays off. Photo by <a href="https://unsplash.com/@punttim">Tim Gouw</a> on <a href="https://unsplash.com/photos/1K9T5YiZ2WU">Unsplash</a>.</small>
 </p>
 
 Thanks to the powerful packages we have available nowadays, training machine learning models is often a very tiny step in the pipeline of a regular data science project. Altogether, we need to address the following tasks:
@@ -25,7 +29,7 @@ Thanks to the powerful packages we have available nowadays, training machine lea
 5. Feature Selection
 6. Data Modelling
 
-Additionally, if life inferences are planned, several parts from the steps 2-5 needs to be prepared for production environments, i.e., they need to be transferred into scripts in which reproducibility and maintainability can be guaranteed for robust and trustworthy deployments.
+Additionally, if online inferences are planned, several parts from the steps 2-5 needs to be prepared for production environments, i.e., they need to be transferred into scripts in which reproducibility and maintainability can be guaranteed for robust and trustworthy deployments.
 
 Independently from that fact and remaining still in the research and development environment, steps 2-5 consume a large percentage of the effort. We need to apply some kind of methodical creativity to often messy datasets that almost never behave as we initially want.
 

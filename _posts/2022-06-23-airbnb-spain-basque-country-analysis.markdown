@@ -11,6 +11,10 @@ comments: true
 <h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
 </h1>
 
+<div style="line-height:150%;">
+    <br>
+</div>
+
 <p align="center">
 <img src="/assets/airbnb_analysis/san_sebastian_ultrash-ricco-8KCquMrFEPg-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco from Unsplash" width="1000"/>
 <small style="color:grey">Donostia-San Sebastian. Photo by <a href="https://unsplash.com/photos/8KCquMrFEPg">@ultrashricco from Unsplash</a>.</small>
