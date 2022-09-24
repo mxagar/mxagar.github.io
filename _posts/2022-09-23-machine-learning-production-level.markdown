@@ -51,7 +51,7 @@ Machine learning systems have particular properties that present new challenges 
 - Level 1 (production): the inference pipeline is deployed manually and the artifact versions are tracked (models, data, code, etc.) and pipeline outputs monitored.
 - Level 2 (*very serious* production): deployments of training and inference pipelines are done automatically and frequently, enabling large-scale continuously updated applications.
 
-Small/medium-sized projects (teams of 1-20 people) require typically level 1 maturity, and the companies where they are implemented in usually don't have the resources to go for level 2. 
+Small/medium-sized projects (teams of 1-20 people) require typically level 1 maturity, and often, the companies where they are implemented in don't have the resources to go for level 2. 
 
 In this article, **I present a standardized way of transforming research notebooks into production-level code**; in MLOps maturity levels that represents the journey from level 0 to 1. To that end, I have implemented **a boilerplate project with production-ready quality that can be cloned from this [Github repository](https://github.com/mxagar/customer_churn_production)**.
 
@@ -67,7 +67,7 @@ The selected business case consists in analyzing **customer churn** using the [C
 - Logging implemented during production execution and testing
 - Dependencies controlled for custom environments
 - Installable python package
-- Basic containerization with Docker
+- Basic containerization with [Docker](https://www.docker.com/)
 
 However, two properties are missing to reach full level 1:
 
@@ -89,7 +89,7 @@ The boilerplate project from the [Github repository](https://github.com/mxagar/c
 ├── customer_churn/                   # Production library, package
 │   ├── __init__.py                   # Python package file         
 │   ├── churn_library.py              # Production library
-│   └── transformations.py            # Utilities for library
+│   └── transformations.py            # Utilities for the library
 ├── data/                             # Dataset folder
 │   ├── README.md                     # Dataset details
 │   └── bank_data.csv                 # Dataset file
@@ -113,18 +113,18 @@ All the research work of the project is contained in the notebook `churn_noteboo
 The code from `churn_notebook.ipynb` has been transformed to create the package `customer_churn`, which contains two files:
 
 - `churn_library.py`: this file contains most of the refactored and modified code from the notebook.
-- `transformations.py`: definition of auxiliary transformations used in the data processing; complex operations on the data are implemented in Object-Oriented style so that they can be cleanly applied as one with the [`sklearn.preprocessing`](https://scikit-learn.org/stable/modules/preprocessing.html) package.
+- `transformations.py`: definition of auxiliary transformations used in the data processing; complex operations on the data are implemented in Object-Oriented style so that they can be cleanly applied as with the [`sklearn.preprocessing`](https://scikit-learn.org/stable/modules/preprocessing.html) package.
 
 Additionally, a `tests` folder is provided, which contains `test_churn_library.py`. This script performs unit tests on the different functions of `churn_library.py` using [pytest](https://docs.pytest.org/).
 
 The executable or `main` function is provided in `main.py`; this script imports the package `customer_churn` and runs three functions from `churn_library.py`:
 
-0. `run_setup()`: the configuration file `config.yaml` is loaded and auxiliary folders are created, if not there yet:
+- `run_setup()`: the configuration file `config.yaml` is loaded and auxiliary folders are created, if not there yet:
    - `images`: it will contain the images of the EDA and the model evaluation.
-   - `models`: it will contain the inference models/pipelines as serialized pickles.
+   - `models`: it will contain the inference models/pipelines as serialized objects (pickles).
    - `artifacts`: it will contain the data processing parameters created during the training and required for the inference, serialized as pickles.
-1. `run_training()`: it performs the EDA, the data checks, processing and modeling, and it generates the inference artifacts (the model/pipeline), which are persisted as serialized objects (pickles). In the provided example, logistic regression and random forests are tuned in a grid search to find the best model in the hyperparameter space.
-2. `run_inference()`: it shows how the inference artifacts need to be used to perform a prediction; an exemplary dataset sample created during the training is used.
+- `run_training()`: it performs the EDA, the data checks, the data processing and modeling, and it generates the inference artifacts (the model/pipeline), which are persisted as serialized objects (pickles). In the provided example, logistic regression and random forests are tuned in a grid search to find the best set of hyperparameters.
+- `run_inference()`: it shows how the inference artifacts need to be used to perform a prediction; an exemplary dataset sample created during the training is used.
 
 The following diagram shows the workflow:
 
@@ -147,7 +147,7 @@ Although the training and the inference pipeline represented by `run_training()`
 Note that `run_inference()` is not very useful in its current state, because of the following limitations:
 
 - It reads a sample dataset from a `CSV` file, instead of waiting for requests.
-- It loads the data processing parameters and the model pipeline every time new data needs to be scored, instead of keeping them model in memory.
+- It loads the data processing parameters and the model pipeline every time new data needs to be scored, instead of keeping them in memory.
 
 Those intentional loose ends are to be tied when deciding how to deploy the model, which is not in the scope of this repository, as mentioned.
 
@@ -157,7 +157,7 @@ More details on the package can be found on the source [Github repository](https
 
 In this article I introduced my personal boilerplate to transform small/medium-sized data science projects into production-ready packages. The template works on the customer churn prediction problem using the [Credit Card Customers](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers/code) dataset from [Kaggle](https://www.kaggle.com/), but you are free to clone the boilerplate from its [Github repository](https://github.com/mxagar/customer_churn_production) and modify it for your business case. The following software engineering aspects are covered:
 
-- Structure which reflects the typical steps in a medium-sized data science project
+- Structure which reflects the typical steps in a small/medium-sized data science project
 - Readable, simple, concise code
 - PEP8 conventions applied, checked with [pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/)
 - Modular and efficient code, with Object-Oriented patterns
@@ -167,12 +167,12 @@ In this article I introduced my personal boilerplate to transform small/medium-s
 - Logging implemented during production execution and testing
 - Dependencies controlled for custom environments
 - Installable python package
-- Basic containerization with [docker](https://www.docker.com)
+- Basic containerization with [Docker](https://www.docker.com)
 
 Topics such as data processing techniques, pipeline deployment, artifact tracking and model monitoring are out of scope -- for them, have a look at the following links:
 
-- [A 80/20 Guide for Exploratory Data Analysis, Data Cleaning and Feature Engineering.](https://mikelsagardia.io/blog/data-processing-guide.html).
-- [A Boilerplate for Reproducible and Tracked Machine Learning Pipelines with MLflow and Weights & Biases and Its Application to Song Genre Classification.](https://github.com/mxagar/music_genre_classification).
+- [A 80/20 Guide for Exploratory Data Analysis, Data Cleaning and Feature Engineering](https://mikelsagardia.io/blog/data-processing-guide.html).
+- [A Boilerplate for Reproducible and Tracked Machine Learning Pipelines with MLflow and Weights & Biases and Its Application to Song Genre Classification](https://github.com/mxagar/music_genre_classification).
 - If you are interested in more MLOps-related content, you can visit my notes on the [Udacity Machine Learning DevOps Engineering Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821): [mlops_udacity](https://github.com/mxagar/mlops_udacity).
 
 <br>
