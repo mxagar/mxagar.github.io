@@ -144,10 +144,10 @@ The following diagram shows the workflow:
 </div>
 Although the training and the inference pipeline represented by `run_training()` and `run_inference()` should run sequentially one after the other, the symmetry of both is clear; in fact, a central property of the package is that `run_training()` and `run_inference()` share the function `perform_data_processing()`. When `perform_data_processing()` is executed in `run_training()`, it generates the processing parameters and stores them to disk. In contrast, when `perform_data_processing()` is executed in `run_inference()`, it loads those stored parameters to perform the data processing for the inference.
 
-Note that `run_inference()` is not very useful in its current state, because of the following limitations:
+Note that the implemented `run_inference()` is exemplary and it needs to be adapted:
 
-- It reads a sample dataset from a `CSV` file, instead of waiting for requests.
-- It loads the data processing parameters and the model pipeline every time new data needs to be scored, instead of keeping them in memory.
+- Currently, it is triggered manually and it scores a sample dataset from a `CSV` file offline; instead, we should wait for external requests that feed new data to be scored.
+- The data processing parameters and the model should be loaded once in the beginning (hence, the dashed box) and used every time new data is scored.
 
 Those intentional loose ends are to be tied when deciding how to deploy the model, which is not in the scope of this repository, as mentioned.
 
