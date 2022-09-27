@@ -3,7 +3,7 @@ layout: post
 title:  "From Jupyter Notebooks to Production-Level Code"
 subtitle: "A Boilerplate Package to Transform Machine Learning Research Notebooks into Deployable Pipelines"
 date: 2022-09-23 09:30:00 +0200
-categories: data science, machine learning, data analysis, exploratory data analysis, feature engineering, data modelling, regression, classification, random forests, logistic regression, python packages, production, logging, PEP8, linting, testing, pytest, docker, MLOps, deployment
+categories: data science, machine learning, data analysis, exploratory data analysis, feature engineering, data modelling, regression, classification, random forests, logistic regression, support vector machine, python packages, production, logging, PEP8, linting, testing, pytest, docker, MLOps, deployment
 permalink: /blog/machine-learning-production-level.html
 comments: true
 ---
@@ -123,7 +123,7 @@ The executable or `main` function is provided in `main.py`; this script imports 
    - `images`: it will contain the images of the EDA and the model evaluation.
    - `models`: it will contain the inference models/pipelines as serialized objects (pickles).
    - `artifacts`: it will contain the data processing parameters created during the training and required for the inference, serialized as pickles.
-- `run_training()`: it performs the EDA, the data checks, the data processing and modeling, and it generates the inference artifacts (the model/pipeline), which are persisted as serialized objects (pickles). In the provided example, logistic regression and random forests are tuned in a grid search to find the best set of hyperparameters.
+- `run_training()`: it performs the EDA, the data checks, the data processing and modeling, and it generates the inference artifacts (the model/pipeline), which are persisted as serialized objects (pickles). In the provided example, logistic regression, support vector machines and random forests are optimized in a grid search to find the best set of hyperparameters.
 - `run_inference()`: it shows how the inference artifacts need to be used to perform a prediction; an exemplary dataset sample created during the training is used.
 
 The following diagram shows the workflow:
