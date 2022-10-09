@@ -17,4 +17,4 @@ Currently, I am **building** two business projects related to machine vision and
 - [datamix.ai](https://datamix.ai)
 - [machinevision.academy](https://machinevision.academy)
 
-If you'd like to **contact my for any kind of professional collaboration**, don't hesitate: [{{ site.email }}](mailto:{{ site.email }}).
+If you'd like to **contact me for any kind of professional collaboration**, don't hesitate: [{{ site.email }}](mailto:{{ site.email }}).
