@@ -174,6 +174,13 @@ As already mentioned, the output of an LSTM cell is a sequence of hidden states;
 
 At the end of the day, we need to get the proper dataset we'd like to fit, apply the matrix mappings that match the input features with the target values and learn by optimization the weights within those matrices. Well, with RNNs, we need to consider additionally that we work with sequences.
 
+After seeing a sequence of tokens, the trained model is able to infer the likelihood of each token in the vocabulary to be the next one. That functionality is wrapped in a text generation application that works as follows:
+
+1. We define an initial sequence filled with the padding token and allocate in its last cell a priming word/token. The padding token is a placeholder or *empty* symbol, whereas the priming token is the seed with which the model will start to generate text.
+2. The sequence is fed to the network and it produces the probabilities for all possible tokens. We take a random token from the 5 most likely ones: that is the first generated token/word.
+3. The previous input sequence is rolled one element to the front and the last generated token is inserted in the last position.
+4. We repeat steps 2 and 3 until we generate the number of words we want.
+
 ## Results
 
 To train the network, I used the [Seinfeld Chronicles Dataset from Kaggle](https://www.kaggle.com/datasets/thec03u5/seinfeld-chronicles), which contains the complete scripts from the [Seinfeld TV Show](https://en.wikipedia.org/wiki/Seinfeld). To be honest, I've never watched Seinfeld, but the conversation does seem to look structurally fine :sweat_smile:
