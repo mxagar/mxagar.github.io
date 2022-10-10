@@ -23,17 +23,17 @@ comments: true
 <small style="color:grey">"If you give me an infinite number of bananas I'll type <em>banana</em> for you." Photo from <a href="https://commons.wikimedia.org/wiki/File:Chimpanzee_seated_at_typewriter.jpg">Wikimedia</a>.</small>
 </p>
 
-The [infinite money theorem](https://en.wikipedia.org/wiki/Infinite_monkey_theorem) states that a monkey writing random letters on a keyboard long enough can reproduce the complete works of Shakespeare. There is even a straightforward proof when *long enough* tends to infinity.
+The [infinite monkey theorem](https://en.wikipedia.org/wiki/Infinite_monkey_theorem) states that a monkey writing random letters on a keyboard long enough can reproduce the complete works of Shakespeare. There is even a straightforward proof when *long enough* tends to infinity.
 
 Now, I don't plan to have monkeys in my cellar and I surely don't have infinite time. But could maybe neural networks aid in that enterprise? It turns out, they can, and they are astonishingly effective even with small tweaking efforts.
 
 <br>
 
-> Deep neural networks are astonishingly good at learning patterns and one can exploit that to generate new and structurally coherent data.
+> Deep neural networks are amazingly good at learning patterns and one can take advantage of that to generate new and structurally coherent data.
 
 <br>
 
-Inspired by the [great post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) from [Andrej Karpathy](https://karpathy.ai/) in which he describes how [text can be generated character-wise](https://github.com/karpathy/char-rnn), I implemented a *word-wise* text generator which works with Recursive Neural Networks (RNNs). My code can be found in [**this Github repository**](https://github.com/mxagar/text_generator). 
+Inspired by the [great post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) from [Andrej Karpathy](https://karpathy.ai/) in which he describes how [text can be generated character-wise](https://github.com/karpathy/char-rnn), I implemented a *word-wise* text generator which works with Recurrent Neural Networks (RNNs). My code can be found in [**this Github repository**](https://github.com/mxagar/text_generator). 
 
 Are you interested in how this is possible? Let's dive in!
 
@@ -47,11 +47,11 @@ In many language modeling applications, and in the particular text generation ca
 - We define **recurrent layers** which take those sequences of vectors and yield sequences of outputs.
 - We take the complete or partial output sequence and we **map it to the target space**, e.g., words.
 
-Let's analyze more in detail what happens in each step.
+Let's analyze in more detail what happens in each step.
 
 ### Text Preprocessing
 
-Computers are able to work only with numbers. The same way an image is represented as a matrix of pixels that contain `R-G-B` values, sentences need to be transformed into numbers. One common recipe to achieving that is the following:
+Computers are able to work only with numbers. The same way an image is represented as a matrix of pixels that contain `R-G-B` values, sentences need to be transformed into numerical values. One common recipe to achieving that is the following:
 
 1. The text is [**tokenized**](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization): it is converted into a list of elements or tokens that have an identifiable unique meaning; these elements are usually words and related symbols, such as question marks or other punctuation elements.
 2. A **vocabulary** is created: we generate a dictionary with all the `n` unique tokens in the dataset which maps from the token string to an `id` and vice versa.
@@ -66,7 +66,7 @@ Note that, in practice, one-hot encoding the tokens can be skipped. Instead, tok
 <p align="center">
 <img src="/assets/text_generation_rnn/Embeddings.png" alt="Text vectorization: the word 'dog' converted into an embedding vector" width="600"/>
 <br>
-<small style="color:grey">Text vectorization: the word "dog" converted into an embedding vector.</small>
+<small style="color:grey">Text vectorization: the word "dog" converted into an embedding vector. Image by the author.</small>
 </p>
 
 <div style="line-height:150%;">
@@ -75,11 +75,17 @@ Note that, in practice, one-hot encoding the tokens can be skipped. Instead, tok
 
 ### Recurrent Neural Networks
 
-Once we have sequences of vectorized tokens, we can feed them to recursive layers that learn patterns from them. Recursive layers are characterized by the following properties:
+Once we have sequences of vectorized tokens, we can feed them to recursive layers that learn patterns from them. For instance, in our word-wise text generator, we might input a sequence like
+
+`The`, `dog`, `is`, `eating`, `a`
+
+and make the model learn to output the target token `bone`. In other words, the network is trained to predict the likeliest vector(s) given the sequence of vectors we have shown it.
+
+Recursive layers are characterized by the following properties:
 
 - Vectors of each sequence are fed one by one to them.
 - Neurons that compose those layers keep a *memory state*, also known as *hidden state*.
-- The memory state from the previous step, i.e., the one produced by the previous vectors in the sequence, is used in the current step to produce a new output and a new memory state.
+- The memory state from the previous step, i.e., the one produced by the previous vector in the sequence, is used in the current step to produce a new output and a new memory state.
 
 The most basic recursive layer is the [Simple RNN or Elman Network](https://en.wikipedia.org/wiki/Recurrent_neural_network), depicted in the following figure:
 
@@ -157,7 +163,7 @@ Usually, 2-3 RNN layers are stacked one after the other and the final output vec
 <p align="center">
 <img src="/assets/text_generation_rnn/TextGeneration.png" alt="The complete text generation pipeline" width="800"/>
 <br>
-<small style="color:grey">A complete text generation pipeline. In the example, the vocabulary size is n = 10 and we pass a sequence of 5 tokens to the network. The embedding size is m = 5 and the hidden states have a size of 4. Image by the author.</small>
+<small style="color:grey">A complete text generation pipeline. In the example, the vocabulary size is n = 10 and we pass a sequence of 5 tokens to the network. The embedding size is m = 3 and the hidden states have a size of 4. Image by the author.</small>
 </p>
 
 <div style="line-height:150%;">
@@ -170,7 +176,7 @@ At the end of the day, we need to get the proper dataset we'd like to fit, apply
 
 ## Results
 
-To train the network, I used the [Seinfeld Chronicles Dataset from Kaggle](https://www.kaggle.com/datasets/thec03u5/seinfeld-chronicles), which contains the complete scripts from the [Seinfield TV Show](https://en.wikipedia.org/wiki/Seinfeld). To be honest, I've never watched Seinfield, but the conversation does seem to look structurally fine :sweat_smile:
+To train the network, I used the [Seinfeld Chronicles Dataset from Kaggle](https://www.kaggle.com/datasets/thec03u5/seinfeld-chronicles), which contains the complete scripts from the [Seinfeld TV Show](https://en.wikipedia.org/wiki/Seinfeld). To be honest, I've never watched Seinfeld, but the conversation does seem to look structurally fine :sweat_smile:
 
 You can judge it by yourself:
 
@@ -238,7 +244,13 @@ elaine: yeah, but you should take some more
 
 ## Conclusions
 
-SUMMARY
+In this blog post I explain how the [toy word-wise text generator I implemented](https://github.com/mxagar/text_generator) works. The application uses Recurrent Neural Networks (RNNs) consisting of Long Short-Term Memory (LSTM) units; the parts and steps developed for it are common to many Natural Language Processing (NLP) applications, such as [sentiment analysis](https://github.com/mxagar/text_sentiment) or [image captioning](https://github.com/mxagar/image_captioning), and I try to answer the central questions around them:
+
+- Text processing: what tokenization and vocabulary generation are, and why we need to vectorize words in embedding spaces.
+- RNNs and LSTM units: what these recurrent layers do and the shape of their inputs and outputs.
+- Final sequence mapping: how the outputs from recurrent layers can be transformed into the target space.
+
+I trained the model with the [Seinfeld Chronicles Dataset from Kaggle](https://www.kaggle.com/datasets/thec03u5/seinfeld-chronicles) and, although the generated text doesn't make complete sense, the dialogues seem structurally similar to the ones in the dataset; in some cases, I read 1-3 sentences and I can almost hear the sitcom laugh track in the background :joy:
 
 <br>
 
