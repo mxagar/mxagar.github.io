@@ -265,7 +265,7 @@ I trained the model with the [Seinfeld Chronicles Dataset from Kaggle](https://w
 
 <br>
 
-If you're interested in more technical details related to the topic, you can have a look at [**Github repository of the project**](https://github.com/mxagar/text_generator). Also, [Andrej Karpathy's great blog post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) is definitely worth your time.
+If you're interested in more technical details related to the topic, you can have a look at [**Github repository of the project**](https://github.com/mxagar/text_generator). Also, if you'd like to see how a very similar architecture as the one used here can be employed to generate text descriptions of image contents, you can have a look at my [image captioning project](https://github.com/mxagar/image_captioning).
 
 <br>
 
