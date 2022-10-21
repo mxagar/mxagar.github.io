@@ -57,7 +57,7 @@ In this article, **I present a standardized way of transforming research noteboo
 
 The selected business case consists in analyzing **customer churn** using the [Credit Card Customers](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers/code) dataset from [Kaggle](https://www.kaggle.com/). Data analysis, modeling and inference pipelines are implemented in the project to end up with an interpretable model-pipeline that is also able to perform reliable predictions. However, the package is designed so that the business case and the data analysis can be easily replaced, and the focus lies in providing a template with the following properties:
 
-- Structure which reflects the typical steps in a medium-sized data science project
+- Structure which reflects the typical steps in a small/medium-sized data science project
 - Readable, simple, concise code
 - PEP8 conventions applied, checked with [pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/)
 - Modular and efficient code, with Object-Oriented patterns
@@ -151,25 +151,18 @@ Note that the implemented `run_inference()` is exemplary and it needs to be adap
 
 Those intentional loose ends are to be tied when deciding how to deploy the model, which is not in the scope of this repository, as mentioned.
 
+Finally, note that this boilerplate is designed for small/medium datasets, which are not that uncommon in small/medium enterprises; in my experience, its structure is easy to understand, implement and adapt. However, as the complexity increases (e.g., when we need to apply extensive feature engineering), it is recommended to apply these changes to the architecture:
+
+- All data processing steps should be written in an Object Oriented style and packed into a [Scikit-Learn](https://scikit-learn.org/stable/) `Pipeline` (or similar), as done in `transformations.py`.
+- Any data processing that must be applied to new data should be integrated in the inference pipeline generated in `train_models()`; that means that we should integrate most of the content in `perform_data_processing()` as a `Pipeline` in `train_models()`. Thus, `perform_data_processing()` would be reduced to basic tasks related to cleaning (e.g., duplicate removal) and checking.
+
 More details on the package can be found on the source [Github repository](https://github.com/mxagar/customer_churn_production).
 
 ## Conclusions
 
-In this article I introduced my personal boilerplate to transform small/medium-sized data science projects into production-ready packages. The template works on the customer churn prediction problem using the [Credit Card Customers](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers/code) dataset from [Kaggle](https://www.kaggle.com/), but you are free to clone the boilerplate from its [Github repository](https://github.com/mxagar/customer_churn_production) and modify it for your business case. The following software engineering aspects are covered:
+In this article I introduced my personal boilerplate to transform small/medium-sized data science projects into production-ready packages without exposing to many 3rd party tools. The template works on the customer churn prediction problem using the [Credit Card Customers](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers/code) dataset from [Kaggle](https://www.kaggle.com/), but you are free to clone the boilerplate from its [Github repository](https://github.com/mxagar/customer_churn_production) and modify it for your business case. Important software engineering aspects as covered, such as, clean code conventions, modularity, reproducibility, logging, error and exception handling, testing, dependency handling with environments -- and more.
 
-- Structure which reflects the typical steps in a small/medium-sized data science project
-- Readable, simple, concise code
-- PEP8 conventions applied, checked with [pylint](https://pypi.org/project/pylint/) and [autopep8](https://pypi.org/project/autopep8/)
-- Modular and efficient code, with Object-Oriented patterns
-- Documentation provided at different stages: code, `README` files, etc.
-- Error/exception handling
-- Execution and data testing with [pytest](https://docs.pytest.org/en/7.1.x/)
-- Logging implemented during production execution and testing
-- Dependencies controlled for custom environments
-- Installable python package
-- Basic containerization with [Docker](https://www.docker.com)
-
-Topics such as data processing techniques, pipeline deployment, artifact tracking and model monitoring are out of scope -- for them, have a look at the following links:
+Topics such as data processing techniques, pipeline deployment, artifact tracking and model monitoring are out of scope; for them, have a look at the following links:
 
 - [A 80/20 Guide for Exploratory Data Analysis, Data Cleaning and Feature Engineering](https://mikelsagardia.io/blog/data-processing-guide.html).
 - [A Boilerplate for Reproducible and Tracked Machine Learning Pipelines with MLflow and Weights & Biases and Its Application to Song Genre Classification](https://github.com/mxagar/music_genre_classification).
