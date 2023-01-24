@@ -166,6 +166,7 @@ Topics such as data processing techniques, pipeline deployment, artifact trackin
 
 - [A 80/20 Guide for Exploratory Data Analysis, Data Cleaning and Feature Engineering](https://mikelsagardia.io/blog/data-processing-guide.html).
 - [A Boilerplate for Reproducible and Tracked Machine Learning Pipelines with MLflow and Weights & Biases and Its Application to Song Genre Classification](https://github.com/mxagar/music_genre_classification).
+- [Deployment of a Census Salary Classification Model Using FastAPI](https://github.com/mxagar/census_model_deployment_fastapi).
 - If you are interested in more MLOps-related content, you can visit my notes on the [Udacity Machine Learning DevOps Engineering Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821): [mlops_udacity](https://github.com/mxagar/mlops_udacity).
 
 <br>
