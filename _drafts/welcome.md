@@ -19,7 +19,10 @@ If you'd like to learn more about me or get in touch, you can find me on the fol
 PS: If you're interested in more personal stuff, [click here]({{ site.url }}/personal/).
 
 <!--
-I also created a small data science consulting agency: [Datakite](https://datakite.ai).
+I also created [Datakite](https://datakite.ai), a small data science consulting agency.
+
+I'm Mikel, a data scientist and engineer with a passion for all things related to machine learning. On this site, you'll find my personal musings and examples of my work, with a focus on computer vision and natural language processing.
+
 https://www.uvm.edu/~bnelson/computer/html/wrappingtextaroundimages.html
 https://www.w3schools.com/css/css3_shadows_box.asp
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow4
