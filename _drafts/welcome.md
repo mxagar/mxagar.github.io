@@ -1,4 +1,6 @@
-Hi, I'm Mikel Sagardia!
+<img src="/assets/mikel_sagardia_big_lowres.jpg" alt="Mikel Sagardia" width="200" style="float: left; margin-right: 30px; margin-bottom: 30px; border: 10px solid white; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); transform: rotate(-3deg);" />
+
+:wave: Hi, I'm Mikel Sagardia!
 
 I'm a data scientist and engineer with a passion for all things related to **machine learning**. I have a [PhD](https://elib.dlr.de/132879/) in the intersection between robotics, virtual simulations and human-machine interfaces. However, since 2017 my interests have progressively shifted to applications that combine **computer vision** and **natural language processing**.
 
@@ -20,10 +22,4 @@ PS: If you're interested in more personal stuff, [click here]({{ site.url }}/per
 
 <!--
 I also created [Datakite](https://datakite.ai), a small data science consulting agency.
-
-I'm Mikel, a data scientist and engineer with a passion for all things related to machine learning. On this site, you'll find my personal musings and examples of my work, with a focus on computer vision and natural language processing.
-
-https://www.uvm.edu/~bnelson/computer/html/wrappingtextaroundimages.html
-https://www.w3schools.com/css/css3_shadows_box.asp
-https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow4
 -->
