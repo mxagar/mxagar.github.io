@@ -22,8 +22,9 @@ If you'd like to learn more about me or get in touch, you can find me on the fol
 - [Youtube channel](https://www.youtube.com/c/MikelSagardia)
 - Email: [{{ site.email }}](mailto:{{ site.email }})
 
+<!--
+
 PS: If you're interested in more personal stuff, [click here]({{ site.url }}/personal/).
 
-<!--
 [Datakite](https://datakite.ai)
 -->
