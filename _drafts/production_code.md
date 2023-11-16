@@ -31,6 +31,8 @@ Resources:
 
 - [Software engineering tools for Data Scientists](https://github.com/mxagar/data_science_udacity/blob/main/02_SoftwareEngineering/DSND_SWEngineering.md)
 - [Producing clean code](https://github.com/mxagar/mlops_udacity/blob/main/01_Clean_Code/MLOpsND_CleanCode.md)
+- [Software development tool guides](https://github.com/mxagar/tool_guides)
+- [Data Structures and Design Patterns in Python](https://github.com/mxagar/python_software_engineering)
 
 General overview on style and focus:
 
@@ -43,6 +45,7 @@ Other resources specific for Data Scientists or Machine Learning Engineers:
 
 - [Guide for Data Scientists](https://github.com/mxagar/data_science_udacity)
 - [MLOps Guide](https://github.com/mxagar/mlops_udacity)
+- [Cheat Sheet for EDA, Feature Engineering and Basic Data Modeling](https://github.com/mxagar/eda_fe_summary)
 
 <br>
 
