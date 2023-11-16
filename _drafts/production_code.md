@@ -16,6 +16,8 @@ Contents, topics:
 - Linting: pylint, autopep8; follow PEP8.
 - [Type hints](https://docs.python.org/3/library/typing.html).
 - Dealing with configuration constants: config files, environment variables.
+- Beware of the basic data structures and their efficiency in basic operations: lists, tuples, sets, dicts.
+- Master Python (*pythonic*) tools, tips and tricks: `zip()`, list comprehensions, scope, by-reference/value...
 - Modularization and OOP: use classes, whenever possible; otherwise refactor in reusable functions.
 - Executable modules: `"__main__"` + `argparse`.
 - Packages: `__init__.py`, `setup.py` or `pyproject.toml`.
