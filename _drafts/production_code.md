@@ -10,6 +10,7 @@ comments: true
 Contents, topics:
 
 - Python environments: conda, venv, pip-tools, poetry; pin and track depencencies.
+- Version control: basic git usage and *fork-change-merge* workflow in teams.
 - Docstrings: functions, modules, folow PEP8.
 - Exception handling: try-except, logging.
 - Linting: pylint, autopep8; follow PEP8.
