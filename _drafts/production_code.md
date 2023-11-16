@@ -19,10 +19,10 @@ Contents, topics:
 - Executable modules: `"__main__"` + `argparse`.
 - Packages: `__init__.py`, `setup.py` or `pyproject.toml`.
 - Testing: pytest.
-- Architecture: SOLID, MVC, DDD, Design Patterns
 - REST APIs: Flask, FastAPI? Because everything are microservices nowadays.
 - Containerization: Docker and Docker-Compose? Because you should be able to ship/deploy your app.
 - CI/CD?
+- Architecture: SOLID, MVC, DDD, Design Patterns.
 
 Resources:
 
