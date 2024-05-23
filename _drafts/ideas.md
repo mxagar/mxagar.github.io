@@ -1,8 +1,12 @@
 Topics:
 
+- Software Design Patterns Applied to Machine Learning
+  - Part 1: Intro, SOLID, Creational (selection)
+  - Part 2: Structural (selection)
+  - Part 3: Behavioral (selection)
+  - Part 4: MLops Book (Lakshmanan) selection
 - The Basics of Production Code
 - Hyperparameter Tuning in a Nutshell
-- A Framework to Negotiate a Better Salary -- or Whatever You Want
 - Natural Language Processing (NLP) with Transformers
 - A Personal Guide to RAG-Based Search (Retrieval-Aumented Generation)
 - DINO v2 and SAM: An Evaluation of the New Backbones for Computer Vision by Meta
