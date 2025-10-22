@@ -180,4 +180,10 @@ In this post, I've shared the motivation and architecture behind my personal eGP
 
 Running models locally is not only cost-effective but also empowers you to work autonomously, privately, and creatively, without depending on cloud services.
 
+<br>
+
 > Would you prefer to build your own local AI workstation, or do you trust cloud services enough to rely on them entirely? What would be your ideal balance between local and cloud compute?
+
+<br>
+
+If you're interested in a step-by-step guide, check [**my Github repository of the project**](https://github.com/mxagar/linux_nvidia_egpu).
