@@ -1,0 +1,24 @@
+---
+# Only needed so Jekyll processes this as SCSS
+---
+
+@import "{{ site.theme }}";  /* optional: keep base theme styles */
+
+/* Your custom styles below */
+/* Code blocks */
+.custom-code {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  border-radius: 8px;
+  padding: 1em;
+  line-height: 1.5;
+  font-size: 0.9em;
+  overflow-x: auto;
+  margin: 1.2em 0;
+}
+
+/* Optional syntax accents */
+.custom-code .keyword { color: #569cd6; }
+.custom-code .string  { color: #ce9178; }
+.custom-code .number  { color: #b5cea8; }
