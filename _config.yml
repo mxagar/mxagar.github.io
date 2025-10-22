@@ -48,14 +48,26 @@ linkedin_username: mikel-sagardia
 
 # Markdown (added by Mikel)
 markdown: kramdown
+highlighter: rouge
 kramdown:
   math_engine: katex
+  input: GFM
+  syntax_highlighter_opts:
+    line_numbers: false
+    css_class: 'highlight'
+
+sass:
+  style: compressed
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
   - jemoji
+
+# Include
+include:
+  - assets/css
 
 # Exclude from processing.
 # The following items will not be processed, by default.
