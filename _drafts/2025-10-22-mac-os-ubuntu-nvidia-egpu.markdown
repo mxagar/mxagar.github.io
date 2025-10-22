@@ -28,9 +28,15 @@ For a detailed setup guide, check <a href="https://github.com/mxagar/linux_nvidi
 </div>
 <div style="height: 30px;"></div>
 
-You have maybe followed the release of the [NVIDIA DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/) *personal supercomputer*. The device, with 128 GB of memory, 20 CPU cores, and a price of USD $3,999.00, will be definitely on the wish list of any AI nerd for this Christmas.
+You may have seen the release of the [NVIDIA DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/), the new *personal supercomputer* from NVIDIA.
+With 128 GB of memory, 20 CPU cores, and a price tag of USD $3,999, it's sure to land on many AI enthusiasts' wish lists this Christmas.
 
-This blog post is my personal and humble alternative. Indeed, in the past 2 years I have been using an NVIDIA eGPU (external GPU) from my MacBook Pro M1, but via a Linux machine, which plays the role of a server. Since some colleagues and friends showed interest, I decided to [thoroughly document it on GitHub](https://github.com/mxagar/linux_nvidia_egpu) in the form of the guide I was looking for, but couldn't find completely. On the other hand, this blog post introduces the overall setup and the motivation behind it. Here's the schematics of my *supercomputer*:
+This post presents my own, more modest alternative.
+For the past two years, I've been using an NVIDIA eGPU (external GPU) connected to my MacBook Pro M1 &mdash; but running through a Linux machine that acts as a dedicated server.
+After several colleagues and friends showed interest, I decided to document the entire setup on [GitHub](https://github.com/mxagar/linux_nvidia_egpu) as the guide I once looked for but never fully found.
+In this post, I'll introduce the overall setup and explain the motivation behind it.
+
+Here's the schematic of my personal *supercomputer*:
 
 <p align="center">
 <img src="/assets/linux_nvidia_egpu/egpu_linux.png" alt="eGPU Linux & Mac Setup" width="1000"/>
@@ -40,16 +46,16 @@ This blog post is my personal and humble alternative. Indeed, in the past 2 year
 
 I mainly use the eGPU to train general Deep Learning models (with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/ssh)) and to run LLMs locally (with [Ollama](https://ollama.com/)); as illustrated in the figure above:
 
-- I have a [Lenovo ThinkPad P14s](https://www.lenovo.com/gb/en/p/laptops/thinkpad/thinkpadp/p14s-amd-g1/22wsp144sa1) with an integrated NVIDIA Quadro T500 graphics card running Ubuntu.
-- I attach to a Thunderbolt port of the Lenovo a [Razer Core X External Case](https://www.razer.com/mena-en/gaming-laptops/razer-core-x) which contains a [NVIDIA GeForce RTX 3060](https://www.gigabyte.com/Graphics-Card/GV-N3060GAMING-OC-12GD-rev-20), with 12 GB of memory.
+- I have a [Lenovo ThinkPad P14s](https://www.lenovo.com/gb/en/p/laptops/thinkpad/thinkpadp/p14s-amd-g1/22wsp144sa1) with an integrated NVIDIA Quadro T500 graphics card, running Ubuntu.
+- I attach to a Thunderbolt port of the Lenovo a [Razer Core X External Case](https://www.razer.com/mena-en/gaming-laptops/razer-core-x), which contains a [NVIDIA GeForce RTX 3060](https://www.gigabyte.com/Graphics-Card/GV-N3060GAMING-OC-12GD-rev-20) (12GB of memory).
 - I run applications which require GPU power on the Lenovo/Ubuntu but interface with them via my MacBook Pro M1.
 
 You might ask *why I would want to run and train models locally*, since we have many cloud services available that spare us the hassle. Here're my answers:
 
-- Many models (LLMs or any other DL networks) can be used locally for a **fraction of the cost** required by cloud providers; in fact, the [NVIDIA RTX 3060](https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/) with 12 GB is quite similar to the often offered low tier GPU, the [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
-- Use data **confidentially**: running models locally allows you to process sensitive or proprietary data (e.g., personal notes, internal reports, or corporate documents) without uploading them to third-party servers. This means full control over your data lifecycle, compliance with privacy policies, and peace of mind knowing that no external provider logs or stores your content.
-- **Avoid dependence** on cloud services: while cloud platforms provide flexibility, they also create a point of failure and an ongoing dependency on external infrastructure and pricing. Outages like the [AWS downtime of December 2021](https://techcrunch.com/2021/12/07/amazon-web-services-went-down-and-took-a-bunch-of-the-internet-with-it/) or the more recent [AWS outage in October 2025](https://www.wired.com/story/what-that-huge-aws-outage-reveals-about-the-internet/) show how fragile these systems can be.
-- **Learn** how to set up hardware, firmware, and software: managing your own GPU infrastructure provides a deeper understanding of the systems that power modern AI. From BIOS configuration and driver setup to Docker and Conda environments, each layer teaches valuable skills that translate directly into real-world MLOps and engineering practice.
+- Many models (LLMs or any other DL networks) can be used locally for a **fraction of the cost** required by cloud providers; in fact, the [NVIDIA RTX 3060](https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/) with 12GB is quite similar to the often offered low tier GPU, the [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Model deployment often requires private or public cloud services, but experimentation, prototyping, and small-scale training can be done locally.
+- Local models allow you to process data **confidentially**: running models locally allows you to process sensitive or proprietary data (e.g., personal notes, internal reports, or corporate documents) without uploading them to third-party servers. This means full control over your data lifecycle, compliance with privacy policies, and peace of mind knowing that no external provider logs or stores your content.
+- We **avoid dependence** on cloud services if we run models locally: while cloud platforms provide flexibility, they also create a point of failure and an ongoing dependency on external infrastructure and pricing. Outages like the [AWS downtime of December 2021](https://techcrunch.com/2021/12/07/amazon-web-services-went-down-and-took-a-bunch-of-the-internet-with-it/) or the more recent [AWS outage in October 2025](https://www.wired.com/story/what-that-huge-aws-outage-reveals-about-the-internet/) show how fragile these systems can be.
+- Tinkering locally, we **learn** how to set up hardware, firmware, and software: managing your own GPU infrastructure provides a deeper understanding of the systems that power modern AI. From BIOS configuration and driver setup to Docker and Conda environments, each layer teaches valuable skills that translate directly into real-world MLOps and engineering practice.
 
 You might also ask *why not stick to a single computer, Ubuntu or MacOS, with an attached eGPU*. That question has several layers:
 
@@ -60,17 +66,17 @@ You might also ask *why not stick to a single computer, Ubuntu or MacOS, with an
 
 ## Setup Guide: A Summary
 
-The [GitHub repository I have created](https://github.com/mxagar/linux_nvidia_egpu) covers all the questions and technical steps necessary to get up and running an eGPU:
+The [GitHub repository I have created](https://github.com/mxagar/linux_nvidia_egpu) answers all the key questions and walks you through the complete setup process for getting an NVIDIA eGPU up and running. It includes detailed guidance on:
 
-- [Hardware requirements](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-0-hardware-requirements): *What hardware do I need for an eGPU setup? Which GPUs and enclosures are compatible? How much VRAM do typical ML models require?*
-- [Installation of Ubuntu](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-1-install-ubuntu) and [NVIDIA libraries](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-3-install-and-configure-nvidia-and-gpu-related-libraries): *How do I install and configure Ubuntu so it works smoothly with my external NVIDIA GPU?*
+- [Hardware requirements](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-0-hardware-requirements): *What components do you need for an eGPU setup? Which GPUs and enclosures are compatible? How much VRAM do typical ML models require?*
+- [Installation of Ubuntu](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-1-install-ubuntu) and [NVIDIA libraries](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-3-install-and-configure-nvidia-and-gpu-related-libraries): *How do you install and configure Ubuntu so it works seamlessly with my external NVIDIA GPU?*
 
-Additionally, some extra but very practical aspects are covered in dedicated sections:
+Beyond the essentials, the guide also covers some practical extras that make the setup truly usable day to day:
 
-- [Installation of Docker with GPU support](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-5-install-docker-with-nvidia-gpu-support): Containerization has become crucial in the AI/ML industry; unfortunately, setting up deep learning or model-serving workloads inside images with full GPU acceleration is sometimes not that straightforward &mdash; fear not: a simple and reliable recipe is provided in this section.
+- [Installation of Docker with GPU support](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-5-install-docker-with-nvidia-gpu-support): Containerization is now a must in AI/ML workflows. Unfortunately, enabling full GPU acceleration inside Docker images can be tricky &mdash; this section provides a simple, reliable recipe that works.
 - [Remote access configuration](https://github.com/mxagar/linux_nvidia_egpu/tree/main?tab=readme-ov-file#step-6-remote-access-configuration): This section explains how to securely connect to the Ubuntu GPU machine from another device (e.g., a MacBook) within the same local network.
 
-After the installation, we should be able to check our NVIDIA eGPU via the Terminal on the Mac.
+After you've completed the setup, you can verify that your eGPU is correctly recognized by running a quick check in the Mac’s terminal.
 
 <p align="center">
 <img src="/assets/linux_nvidia_egpu/mac_nvidia_smi.png" alt="MacOS NVIDIA SMI" width="1000"/>
@@ -99,21 +105,27 @@ ssh mikel@urgull.local
 # -- Ubuntu via MacBook
 cd && mkdir -p git_repositories && cd git_repositories
 git clone https://github.com/mxagar/linux_nvidia_egpu.git
-conda env create -f conda.yaml
+conda env create -f conda.yaml.  # Create the 'gpu' environment
 ```
 
 Then, we can start a remote VS Code instance:
 
 5. We open VS Code on our MacBook.
-6. Click on *Open Remote Window* (bottom left corner) > *Connect to Host...*.
+6. Click on *Open Remote Window* (bottom left corner) > *Connect to Host*.
 7. We enter the user and host as in `<username>@<hostname-ubuntu>.local`, followed by the password.
 
 ... *et voilà*: we have already a VS Code instance running on the Ubuntu machine, but interfaced by the MacBook UI! Now, we can open any folder, including the folder containing the notebook:
 
 8. Click on *Explorer menu* (left menu bar) > *Open Folder*.
-9. And, finally, load our repository cloned in `~/git_repositories/linux_nvidia_egpu`.
+9. And, finally, we load our repository cloned in `~/git_repositories/linux_nvidia_egpu`.
 
-Once we select the `gpu` environment kernel for the [test_gpu.ipynb](https://github.com/mxagar/linux_nvidia_egpu/blob/main/test_gpu.ipynb) notebook, we can start executing its cells. Among others, a simple CNN is trained with the MNIST dataset (~45MB) and *the NVIDIA RTX 3060 is almost 2x faster than the MacBook Pro M1* (37 sec. vs. 62 sec.). In terms of memory, my MacBook has a *unified memory* of 16GB, vs. the 12GB VRAM of the RTX 3060; it might seem that the NVIDIA chip is worse, but in practice it is not: I can load larger models using its dedicated memory, because the Apple memory is shared between CPU and GPU, which can lead to bottlenecks.
+After selecting the `gpu` environment (kernel) for the [test_gpu.ipynb](https://github.com/mxagar/linux_nvidia_egpu/blob/main/test_gpu.ipynb) notebook, we can start executing its cells.
+
+Among others, a simple CNN is trained in the notebook using the MNIST dataset (~45MB). In my tests, the NVIDIA RTX 3060 completed training in 37 seconds, while the MacBook Pro M1 took about 62 seconds &mdash; nearly twice as fast on the eGPU.
+
+In terms of memory, my MacBook has a *unified memory* of 16GB, vs. the 12GB VRAM of the RTX 3060.
+At first glance, the Mac's chip seems superior to the NVIDIA's.
+However, in practice, the NVIDIA GPU performs better for large models, because its VRAM is fully dedicated to GPU workloads, whereas the Mac's unified memory is shared between CPU and GPU, which can lead to bottlenecks.
 
 <p align="center">
 <img src="/assets/linux_nvidia_egpu/mac_ubuntu_egpu_vscode.png" alt="VS Code Remote Window" width="1000"/>
