@@ -22,3 +22,16 @@
 .custom-code .keyword { color: #569cd6; }
 .custom-code .string  { color: #ce9178; }
 .custom-code .number  { color: #b5cea8; }
+
+/* Centered image that can exceed the column.
+   Set a custom width with --w (px or %). Capped at 100vw. */
+.img-breakout {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--w, 900px);
+  max-width: 100vw;
+  height: auto;
+  margin: 1rem 0;
+}

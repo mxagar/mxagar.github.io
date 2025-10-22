@@ -57,6 +57,12 @@ You might ask *why I would want to run and train models locally*, since we have 
 - We **avoid dependence** on cloud services if we run models locally: while cloud platforms provide flexibility, they also create a point of failure and an ongoing dependency on external infrastructure and pricing. Outages like the [AWS downtime of December 2021](https://techcrunch.com/2021/12/07/amazon-web-services-went-down-and-took-a-bunch-of-the-internet-with-it/) or the more recent [AWS outage in October 2025](https://www.wired.com/story/what-that-huge-aws-outage-reveals-about-the-internet/) show how fragile these systems can be.
 - Tinkering locally, we **learn** how to set up hardware, firmware, and software: managing your own GPU infrastructure provides a deeper understanding of the systems that power modern AI. From BIOS configuration and driver setup to Docker and Conda environments, each layer teaches valuable skills that translate directly into real-world MLOps and engineering practice.
 
+<br>
+
+> Running models locally offers major advantages: it’s far cheaper than using cloud GPUs, keeps your data fully private, and works even when cloud services fail. It also helps you build hands-on expertise with the hardware and software stack that powers modern AI.
+
+<br>
+
 You might also ask *why not stick to a single computer, Ubuntu or MacOS, with an attached eGPU*. That question has several layers:
 
 - Even though I really like Ubuntu, MacOS offers in my opinion another level of user experience in general, which I find more polished than the Linux variant.
@@ -128,7 +134,9 @@ At first glance, the Mac's chip seems superior to the NVIDIA's.
 However, in practice, the NVIDIA GPU performs better for large models, because its VRAM is fully dedicated to GPU workloads, whereas the Mac's unified memory is shared between CPU and GPU, which can lead to bottlenecks.
 
 <p align="center">
-<img src="/assets/linux_nvidia_egpu/mac_ubuntu_egpu_vscode.png" alt="VS Code Remote Window" width="1000"/>
+<!-- 80% of the viewport width, centered -->
+<!-- Enable larger resolution images for Retina displays -->
+<img src="/assets/linux_nvidia_egpu/mac_ubuntu_egpu_vscode@2x.png" srcset="/assets/linux_nvidia_egpu/mac_ubuntu_egpu_vscode@2x.png 2x, /assets/linux_nvidia_egpu/mac_ubuntu_egpu_vscode.png 1x" class="img-breakout" style="--w: 80vw"/>
 <small style="color:grey">Snapshot of the remote VS Code instance: the repository is on the Ubuntu machine with leveraging the eGPU (hostname: <code>urgull</code>), but interfaced from my MacBook (hostname: <code>kasiopeia</code>).
 </small>
 </p>
@@ -199,3 +207,9 @@ Running models locally is not only cost-effective but also empowers you to work 
 <br>
 
 If you're interested in a step-by-step guide, check [**my Github repository of the project**](https://github.com/mxagar/linux_nvidia_egpu).
+
+<br>
+
+{% if page.comments %} 
+{% include disqus-comments.html %}
+{% endif %}
