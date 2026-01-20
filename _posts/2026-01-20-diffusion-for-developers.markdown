@@ -107,7 +107,7 @@ In terms of the *modalities* they can work with, generative models can be:
 They can achieve that by creating a common *latent space* for all modalities, or mappings between them.
 Latent spaces are compressed vector spaces that capture the semantics of the vectors that form them.
 As a result, given a text-image multimodal model, we can ask questions about the content of an image.
-Notable examples are [GPT4-Vision](https://openai.com/research/gpt-4v-system-card) and [LLaVA](https://huggingface.co/spaces/badayvedat/LLaVA)
+Notable examples are [GPT4-Vision](https://openai.com/research/gpt-4v-system-card) and [LLaVA](https://huggingface.co/spaces/badayvedat/LLaVA).
 
 > Discriminative models learn to predict specific properties of a data sample (e.g., a class or a value), whereas generative models learn the data distribution and are able to sample it.
 > Additionally, this sampling can often be conditioned by a prompt.
@@ -172,7 +172,7 @@ As we can see in the figure below, two iterative phases are distinguished, which
 
 So which of these approaches should we use?
 
-To answer that question, we need to consider that generative models are usually evaluated in terms of [three competing properties, which lead to a so-called generative learning trilemma (Xiao et al., 2022)](https://arxiv.org/pdf/2112.07804):
+To answer that question, we need to consider that generative models are usually evaluated in terms of three competing properties, which lead to a so-called [generative learning trilemma (Xiao et al., 2022)](https://arxiv.org/pdf/2112.07804):
 
 - **Quality**: if the distributions of the generated images and real images are close, the quality is considered good. In practice, pre-trained CNNs can be used to create image embeddings, leading to vector distributions. Then, the difference between the distributions is measured with the [Wasserstein distance metric](https://en.wikipedia.org/wiki/Wasserstein_metric). GANs and Diffusers have a particularly good quality, whereas VAEs have often a lesser one.
 - **Coverage**: this measures how diverse the captured distributions are, i.e., the number of modes or peaks in the learned distribution; for instance, in a dataset of dog images, we would expect as many dog breeds as possible, which would be represented as many dense regions differentiable from each other. VAEs and Diffusers have good coverage, whereas GANs tend to deliver less diverse results.
@@ -260,7 +260,7 @@ $$
 \bar{\alpha_t} = \prod_{i=0}^{t}{\alpha_i},\,\,\, \alpha_t = 1 - \beta_t
 $$
 
-and its interpretation is the following:
+Its interpretation is the following:
 
 - $\bar{\alpha}$ represents the fraction of variance due to the signal (the original image $x_0$);
 - $1-\bar{\alpha}$ represents the fraction of variance due to the noise ($\epsilon$).
@@ -308,7 +308,7 @@ The term $\sigma_t z$ is an experimentally added component that provides control
 
 If we fit the model to a dataset of car images, we will be able to generate random car images. But what if we would like to control the type of cars we want to obtain, for instance, *red sports cars*? That can be achieved with **conditioning**.
 
-The most common form of **conditioning** is done with *text*: we provide a prompt/description of the image we want to obtain. As a first step, that text is converted into an embedding vector using a text encoder trained with paired image-text data using a contrastive objective (e.g., [CLIP (Radford et al., 2021)](https://arxiv.org/abs/2103.00020)). Then, the resulting vector is provided to the *U-Net* at several stages:
+The most common form of **conditioning** is done with *text*: we provide a prompt/description of the image we want to obtain. As a first step, that text is converted into an embedding vector using a text encoder trained with paired image-text data using a contrastive objective (e.g., [CLIP by Radford et al., 2021](https://arxiv.org/abs/2103.00020)). Then, the resulting vector is provided to the *U-Net* at several stages:
 
 - During *training*, we inject the embedding vector into different layers of the *U-Net* using cross attention, reinforcing the conditioning. Additionally, we remove the text conditioning in some random steps so that the model learns unconditional generation.
 - During *inference*, the *U-Net* produces the noise map $\epsilon$ with and without text conditioning: $\epsilon_{\textrm{cond}}, \epsilon_{\textrm{uncond}}$. The difference added by the conditioned noise map is amplified (by a factor $\lambda$) to push the final prediction in the direction of the conditioning; mathematically, considering $\epsilon$ is a vector/tensor, this is expressed (and implemented) as follows:
