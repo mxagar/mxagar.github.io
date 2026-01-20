@@ -7,13 +7,15 @@ categories: data science, data analysis, exploratory data analysis, feature engi
 permalink: /blog/data-processing-guide.html
 comments: true
 ---
+<p style="color: #777; font-style: italic; font-size: 1.5em; margin-top: 0.5em;">
+  {% if page.subtitle %}{{ page.subtitle }}{% endif %}
+</p>
 
-<h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
-</h1>
-
+<!--
 <div style="line-height:150%;">
     <br>
 </div>
+-->
 
 <p align="center">
 <img src="/assets/data_processing_guide/tim-gouw-1K9T5YiZ2WU-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco on Unsplash" width="1000"/>

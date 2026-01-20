@@ -7,12 +7,15 @@ categories: eGPU, AI engineering, LLM, machine learning, Ollama, Remote VS Code,
 permalink: /blog/mac-os-ubuntu-nvidia-egpu.html
 comments: true
 ---
-<h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
-</h1>
+<p style="color: #777; font-style: italic; font-size: 1.5em; margin-top: 0.5em;">
+  {% if page.subtitle %}{{ page.subtitle }}{% endif %}
+</p>
 
+<!--
 <div style="line-height:150%;">
     <br>
 </div>
+-->
 
 <p align="center">
 <img src="/assets/linux_nvidia_egpu/workstation-dgx-spark-nvidia.jpg" alt="NVIDIA DGX Spark" width="1000"/>

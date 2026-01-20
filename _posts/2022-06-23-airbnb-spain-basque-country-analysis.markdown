@@ -7,13 +7,15 @@ categories: data science, data analysis, exploratory data analysis, feature engi
 permalink: /blog/airbnb-spain-basque-data-analysis.html
 comments: true
 ---
+<p style="color: #777; font-style: italic; font-size: 1.5em; margin-top: 0.5em;">
+  {% if page.subtitle %}{{ page.subtitle }}{% endif %}
+</p>
 
-<h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
-</h1>
-
+<!--
 <div style="line-height:150%;">
     <br>
 </div>
+-->
 
 <p align="center">
 <img src="/assets/airbnb_analysis/san_sebastian_ultrash-ricco-8KCquMrFEPg-unsplash.jpg" alt="Donostia-San Sebastian: Photo by @ultrashricco from Unsplash" width="1000"/>

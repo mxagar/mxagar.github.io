@@ -7,16 +7,15 @@ categories: data science, machine learning, feature engineering, data modelling,
 permalink: /blog/text-generation-rnn.html
 comments: true
 ---
+<p style="color: #777; font-style: italic; font-size: 1.5em; margin-top: 0.5em;">
+  {% if page.subtitle %}{{ page.subtitle }}{% endif %}
+</p>
 
-<!-- Latex; move this to post.html layout -->
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
-<h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
-</h1>
-
+<!--
 <div style="line-height:150%;">
     <br>
 </div>
+-->
 
 <p align="center">
 <img src="/assets/text_generation_rnn/Chimpanzee_seated_at_typewriter.jpg" alt="A chimpanzee seated at a typewriter" width="1000"/>

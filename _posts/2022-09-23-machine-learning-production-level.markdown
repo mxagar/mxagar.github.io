@@ -7,13 +7,15 @@ categories: data science, machine learning, data analysis, exploratory data anal
 permalink: /blog/machine-learning-production-level.html
 comments: true
 ---
+<p style="color: #777; font-style: italic; font-size: 1.5em; margin-top: 0.5em;">
+  {% if page.subtitle %}{{ page.subtitle }}{% endif %}
+</p>
 
-<h1 style="color:grey;font-style:italic">{% if page.subtitle %}{{ page.subtitle }}{% endif %}
-</h1>
-
+<!--
 <div style="line-height:150%;">
     <br>
 </div>
+-->
 
 <p align="center">
 <img src="/assets/machine_learning_production/notebook.jpg" alt="A notebook" width="1000"/>
