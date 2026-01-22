@@ -412,7 +412,7 @@ This post focused on building intuition and connecting theory to practice throug
 
 If you want to deepen your understanding, the best next step is to [run the notebook yourself](https://github.com/mxagar/diffusion-examples/blob/main/ddpm/ddpm.ipynb), visualize the diffusion process, and experiment with the model's components. Small changes in schedules, architectures, or datasets can lead to very different behaviors.
 
-[In the next post](https://mikelsagardia.io/posts/), I'll move toward more practical diffusion workflows using Hugging Face Diffusers and modern text-to-image models. As always, comments, questions, and suggestions are more than welcome :)
+[In the next post](https://mikelsagardia.io/posts/), I'll move toward more practical diffusion workflows using Hugging Face Diffusers and modern text-to-image models. As always, comments, questions, and suggestions are more than welcome :smile:
 
 <br>
 
