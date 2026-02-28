@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Posts
+title: Blog
 exclude: false
-permalink: /posts/
+permalink: /blog/
 ---
 
 {%- if site.posts.size > 0 -%}
