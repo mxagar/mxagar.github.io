@@ -36,7 +36,7 @@ Subtitle: Hands-On Examples with Hugging Face
 <div align="center" style="border: 1px solid #e4f312ff; background-color: #fcd361b9; padding: 1em; border-radius: 6px;">
 <strong>
 This is the first post of a series of two.
-You can find the <a href="https://mikelsagardia.io/posts/">second part here</a>.
+You can find the <a href="https://mikelsagardia.io/blog/diffusion-hands-on.html">second part here</a>.
 Also, you can find the accompanying code <a href="https://github.com/mxagar/diffusion-examples/ddpm">this GitHub repository</a>.
 </strong>
 </div>
@@ -54,7 +54,7 @@ In **this first post**, you will:
 - Learn how *Denoising Diffusion Probabilistic Models* (DDPMs) work at both conceptual and mathematical levels.
 - See a full, minimal PyTorch implementation of a DDPM that generates car images using a consumer-grade GPU.
 
-In the [**second and final post**](https://mikelsagardia.io/posts/), I'll move on to practical examples using the Hugging Face libraries.
+In the [**second and final post**](https://mikelsagardia.io/blog/diffusion-hands-on.html), I'll move on to practical examples using the Hugging Face libraries.
 
 Let’s get started!
 
@@ -412,7 +412,7 @@ This post focused on building intuition and connecting theory to practice throug
 
 If you want to deepen your understanding, the best next step is to [run the notebook yourself](https://github.com/mxagar/diffusion-examples/blob/main/ddpm/ddpm.ipynb), visualize the diffusion process, and experiment with the model's components. Small changes in schedules, architectures, or datasets can lead to very different behaviors.
 
-[In the next post](https://mikelsagardia.io/posts/), I'll move toward more practical diffusion workflows using Hugging Face Diffusers and modern text-to-image models. As always, comments, questions, and suggestions are more than welcome :smile:
+[In the next post](https://mikelsagardia.io/blog/diffusion-hands-on.html), I'll move toward more practical diffusion workflows using Hugging Face Diffusers and modern text-to-image models. As always, comments, questions, and suggestions are more than welcome :smile:
 
 <br>
 
