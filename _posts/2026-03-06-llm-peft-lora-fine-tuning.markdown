@@ -2,7 +2,7 @@
 layout: post
 title:  "Applying Parameter-Efficient Fine-Tuning (PEFT) to a Large Language Model (LLM)"
 subtitle: "A Conceptual Guide for Developers & ML Practitioners"
-date:   2026-02-06 10:30:00 +0200
+date:   2026-03-06 10:30:00 +0200
 categories: AI engineering, large language models, llm, machine learning, text generation, generative AI, deep learning, attention, fine-tuning, PEFT, LoRA, quantization
 permalink: /blog/llm-peft-lora-fine-tuning.html
 comments: true
