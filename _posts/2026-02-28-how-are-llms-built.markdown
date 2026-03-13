@@ -32,7 +32,7 @@ Subtitle: When We Need to Adapt LLMs to Specific Tasks and Domains
 </small>
 </p>
 
-The release of [ChatGPT](https://openai.com/blog/chatgpt) in November 2022 revolutionized everyday life in much of the developed world. In a similar way that Google convinced us the Internet was truly useful &mdash; and that we needed their searcLanguage models already existed, but OpenAI's chat-based user interface &mdash; combined with the emergent capabilities of their models, enabled by massive network and dataset sizes &mdash; led to the perfect killer app: an ever-ready genie that *seems* to confidently know the answer to everything.
+The release of [ChatGPT](https://openai.com/blog/chatgpt) in November 2022 revolutionized everyday life in much of the developed world. In a similar way that Google convinced us the Internet was truly useful &mdash; and that we needed their search engine &mdash; or Apple introduced the first genuinely usable smartphone that made the digital world ubiquitous, OpenAI came up with the next logical step: assistant chatbots based on Large Language Models (LLMs). Language models already existed, but OpenAI’s chat-based user interface, combined with the emergent capabilities of their huge models, led to the perfect killer app: an ever-ready genie that *seems* to confidently know the answer to everything.
 
 <br>
 
