@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Does Active Learning Really Work in Deep Learning?"
-subtitle: "Not Always, But It Is Low-Cost and It Can Still Be An Educated Selection Framework"
+subtitle: "A Guide and an Evaluation of Active Learning Methods"
 date:   2026-02-06 10:30:00 +0200
 categories: AI engineering, machine learning, training optimization, active learning, deep learning, convolutional neural networks, cnn
 permalink: /blog/active-learning-guide.html
@@ -66,7 +66,7 @@ In each subsequent iteration, the model trained on the already labeled set $L$ r
 <small style="color:grey">Active Learning iteratively selects samples to be annotated from an unlabeled pool <i>U</i>. Then, these samples are labeled and added to the training set <i>L</i>. The right figure shows the process in action in a 2D embedding space. If you're not sure what embeddings are, check <a href="https://mikelsagardia.io/blog/diffusion-for-developers.html">this post of mine</a>. Image by the author.</small>
 </p>
 
-The selection strategy is key, and it can depend on several factors, but commonly the model outputs are part of the process. Considering a classification problem, the model typically outputs class probabilities $p(y_k|x)$ for a sample $x$, where $y_k \in \{1, ..., K\}$ is one of the $K$ classes.
+The selection strategy is key, and it can depend on several factors, but commonly the model outputs are part of the process. Considering a classification problem, the model typically outputs class probabilities $p(y_k\|x)$ for a sample $x$, where $y_k \in \{1, ..., K\}$ is one of the $K$ classes.
 
 Now, let's have a look at the aforementioned selection methods.
 
@@ -76,7 +76,7 @@ $$x^*= \text{Uniform}(U),$$
 
 where $x^*$ is the selected sample and $\text{Uniform}(U)$ denotes a function that randomly selects a sample from the unlabeled pool $U$.
 
-**Entropy-based Uncertainty Sampling** &mdash; The entropy of a prediction can be used to measure how confident a model is; if there is one clearly bigger class probability $p(y_k|x)$, the model is certain of its prediction, whereas more homogeneous $p(y_k|x)$ values denote uncertainty. The goal of this method is to select the samples with the highest uncertainty, so that the model can learn from them and become more confident. The entropy $H$ of a predicted sample $x$ is defined as 
+**Entropy-based Uncertainty Sampling** &mdash; The entropy of a prediction can be used to measure how confident a model is; if there is one clearly bigger class probability $p(y_k\|x)$, the model is certain of its prediction, whereas more homogeneous $p(y_k\|x)$ values denote uncertainty. The goal of this method is to select the samples with the highest uncertainty, so that the model can learn from them and become more confident. The entropy $H$ of a predicted sample $x$ is defined as 
 
 $$H(x) = -\sum_{k=1}^K p(y_k|x) \log p(y_k|x).$$
 
@@ -113,7 +113,7 @@ Again, the idea is similar to the previous two methods, but it only considers th
 
 **[BADGE (Batch Active learning by Diverse Gradient Embeddings, by Ash et al., 2020)](https://arxiv.org/abs/1906.03671)** &mdash; The methods presented so far try to select the most uncertain samples, but they don't consider the diversity of the selected ones. In contrast, BADGE is a method that tries to select samples that are both *uncertain and diverse*. The intuitive reason why we'd like to consider *diversity* is that it seems sensible to cover different regions of the data distribution, not only the spots where the model is unsure. In order to achieve that, in addition to the predicted probabilities, BADGE requires the embedding or feature vectors of the penultimate layer of the model. I will not go into all the mathematical details here, but the main idea is the following:
 
-- The labels of the samples in the unlabeled pool $U$ are estimated by the model: $\hat{y} = \arg\max_{k} p(y_k|x)$.
+- The labels of the samples in the unlabeled pool $U$ are estimated by the model: $\hat{y} = \arg\max_{k} p(y_k\|x)$.
 - The gradient of the last linear layer weights is computed for each sample in $U$ as if it were labeled with its estimated label $\hat{y}$; this gradient is called the *gradient embedding* of the sample. Let $h(x)$ be the function that yields the embedding of the penultimate layer for a sample $x$, and let's assume we are using a cross-entropy loss with a softmax activation; then, the gradient embedding $g(x)$ has this form:
   $$g(x) = h(x)(p-e_{\hat{y}})^T,$$
   being $e_{\hat{y}}$ the one-hot encoded vector corresponding to the estimated label $\hat{y}$. This *gradient embedding* $g(x)$ is of shape $(d \times K)$, where $d$ is the dimension of the penultimate layer's output (embedding size) and $K$ is the number of classes. It is a tensor that represents the direction and magnitude of the parameter update that labeling this sample would induce and it captures information related to both uncertainty and diversity.
