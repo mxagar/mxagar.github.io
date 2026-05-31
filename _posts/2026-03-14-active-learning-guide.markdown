@@ -2,7 +2,7 @@
 layout: post
 title:  "Does Active Learning Really Work in Deep Learning?"
 subtitle: "A Guide and an Evaluation of Active Learning Methods"
-date:   2026-02-06 10:30:00 +0200
+date:   2026-03-14 10:30:00 +0200
 categories: AI engineering, machine learning, training optimization, active learning, deep learning, convolutional neural networks, cnn
 permalink: /blog/active-learning-guide-and-evaluation.html
 comments: true
