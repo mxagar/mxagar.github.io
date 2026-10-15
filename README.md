@@ -118,3 +118,10 @@ or `vendor/`. Local edits and local servers do not deploy anything.
 
 Check deployment results under the repository's
 [Actions tab](https://github.com/mxagar/mxagar.github.io/actions).
+
+## More on Jekyll
+
+Check my guide: [https://github.com/mxagar/jekyll_web_guide](https://github.com/mxagar/jekyll_web_guide).
+
+Mikel Sagardia, 2022.  
+No guarantees.
