@@ -37,7 +37,7 @@ Subtitle: Hands-On Examples with Hugging Face
 <strong>
 This is the first post of a series of two.
 You can find the <a href="https://mikelsagardia.io/blog/diffusion-hands-on.html">second part here</a>.
-Also, you can find the accompanying code <a href="https://github.com/mxagar/diffusion-examples/ddpm">this GitHub repository</a>.
+Also, you can find the accompanying code <a href="https://github.com/mxagar/diffusion-examples/tree/main/ddpm">this GitHub repository</a>.
 </strong>
 </div>
 <div style="height: 30px;"></div>

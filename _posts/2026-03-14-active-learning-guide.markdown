@@ -125,8 +125,8 @@ I have prepared a [GitHub repository](https://github.com/mxagar/active_learning_
 
 As explained in the [repository's README](https://github.com/mxagar/active_learning_guide/blob/main/README.md), the project contains the following files:
 
-- [`active_learning.ipynb`](./active_learning.ipynb): main notebook with the active learning loop and experiments. This is the **entry point** for the user to learn about AL interactively. The notebook uses three helper modules, listed below.
-- [`model_utils.py`](./model_utils.py): model definition and training/evaluation functions. It contains:
+- [`active_learning.ipynb`](https://github.com/mxagar/active_learning_guide/blob/main/active_learning.ipynb): main notebook with the active learning loop and experiments. This is the **entry point** for the user to learn about AL interactively. The notebook uses three helper modules, listed below.
+- [`model_utils.py`](https://github.com/mxagar/active_learning_guide/blob/main/model_utils.py): model definition and training/evaluation functions. It contains:
     - `TrainConfig`: `dataclass` which defines the training hyperparameters.
     - `SimpleCNN`: simple convolutional neural network (CNN) with 2.2 million parameters for image classification.
     - `save_model` and `load_model`: utility functions to save and load the model weights.
@@ -134,13 +134,13 @@ As explained in the [repository's README](https://github.com/mxagar/active_learn
     - `validate` and `evaluate`: functions to evaluate the model on a validation or test set, respectively.
     - `plot_history`: function to plot the training history (loss and accuracy curves).
     - `predict` and `predict_image`: functions to run inference with the model and get the predicted class probabilities, either for a batch of samples or for a single image.
-- [`data_utils.py`](./data_utils.py): data processing functions, e.g.:
+- [`data_utils.py`](https://github.com/mxagar/active_learning_guide/blob/main/data_utils.py): data processing functions, e.g.:
     - `build_paths_and_labels`: function to build the file paths and labels from the dataset directory structure.
     - `CustomDataset`: custom PyTorch dataset class that loads the images and applies transformations.
     - `train_test_val_pool_split`: function to split the dataset into training, validation, and pool sets, and to create the initial labeled set for active learning.
     - `visualize_batch`: function to visualize a batch of images with their labels.
     - `train_transform` and `eval_transform`: data augmentation and preprocessing transformations for training and evaluation, respectively.
-- [`active_ml_utils.py`](./active_ml_utils.py): active learning functions, e.g., computing the next candidates to label.
+- [`active_ml_utils.py`](https://github.com/mxagar/active_learning_guide/blob/main/active_ml_utils.py): active learning functions, e.g., computing the next candidates to label.
     - **`TorchClassifierWrapper`: wrapper class that adapts a PyTorch model to the `scikit-activeml` API, allowing us to use the query strategies with our model.**
     - **`compute_next_candidates`: function that computes the next samples to label based on the selected query/search strategy (`"random", "least_confident", "margin_sampling", "entropy", "badge"`).**
     - **`transfer_candidates_idx`: function to transfer the indices of the selected candidates to the main dataset.**

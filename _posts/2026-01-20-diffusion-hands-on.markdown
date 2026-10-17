@@ -58,9 +58,9 @@ Output of a <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Proba
 
 In this second part, I'll focus on **the practical use of diffusion models**, specifically, on using the invaluable tools provided by [HuggingFace](https://huggingface.co/). To that end, I've divided the post in three parts:
 
-1. A brief [introduction to HuggingFace](#introduction-to-huggingface).
-2. A hands-on dive into some examples with [HuggingFace Diffusers](#huggingface-diffusers).
-3. A small [in-painting application](#in-painting-application) that puts everything together.
+1. A brief [introduction to HuggingFace](#a-very-brief-introduction-to-huggingface).
+2. A hands-on dive into some examples with [HuggingFace Diffusers](#huggingface-diffusers-in-practice).
+3. A small [in-painting application](#building-proof-of-concept-applications-zero-shot-segmentation-and-in-painting) that puts everything together.
 
 Let's go!
 

@@ -46,7 +46,7 @@ Let's start!
 <div style="height: 20px;"></div>
 <div align="center" style="border: 1px solid #e4f312ff; background-color: #fcd361b9; padding: 1em; border-radius: 6px;">
 <strong>
-You can find this post's accompanying code in <a href="https://github.com/mxagar/diffusion-examples/ddpm">this GitHub repository</a>. If you don't know very well how LLMs work or what embeddings are, I recommend reading my previous post <a href="https://mikelsagardia.io/blog/how-are-llms-built.html"><i>"How Are Large Language Models (LLMs) Built?"</i></a> before diving into this one.
+You can find this post's accompanying code in <a href="https://github.com/mxagar/diffusion-examples/tree/main/ddpm">this GitHub repository</a>. If you don't know very well how LLMs work or what embeddings are, I recommend reading my previous post <a href="https://mikelsagardia.io/blog/how-are-llms-built.html"><i>"How Are Large Language Models (LLMs) Built?"</i></a> before diving into this one.
 </strong>
 </div>
 <div style="height: 30px;"></div>

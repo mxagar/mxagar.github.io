@@ -32,7 +32,7 @@ I think something similar happens with the [Jupyter notebooks](https://jupyter.o
 
 <p align="center">
 <img src="/assets/machine_learning_production/sj-YDvfndOs4IQ-unsplash.jpg" alt="Chocolate cookies: Photo by @sjcbrn on Unsplash" width="1000"/>
-<small style="color:grey">Photo by <a href="https://unsplash.com/@sjcbrn">SJ</a> on <a href="https://unsplash.com/photos/YDvfndOs4IQ">Unsplash</a>.</small>
+<small style="color:grey">Photo by <a href="https://unsplash.com/@uxsj_ph">SJ</a> on <a href="https://unsplash.com/photos/YDvfndOs4IQ">Unsplash</a>.</small>
 </p>
 
 I have also noticed that I start becoming more sloppy and lazy when I'm too long around notebooks; it's like when you tend to leave your vegetables unfinished and indulge yourself with cookies for dessert. And then, you try to fit in that wedding suit and you realize it somehow shrunk.
