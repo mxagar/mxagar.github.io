@@ -32,11 +32,11 @@ Deep learning models typically require large amounts of labeled data to achieve 
 
 [Active Learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning)) assumes the first step is given and it defines a framework to address the second one by using the model's own outputs.
 
-> The main idea behind AL is to iteratively label only the most informative samples identified by the model itself. The underlying assumption is that this progressive training and labeling improves the model's performance faster than random sampling, which is the standard baseline for comparison &mdash; but, is that always the case?
+> The main idea behind Active Learning (AL) is to iteratively label only the most informative samples identified by the model itself. The underlying assumption is that this progressive training and labeling improves the model's performance faster than random sampling, which is the standard baseline for comparison &mdash; but, is that always the case?
 
 In this blog post, you will learn:
 
-- What some of the most popular Active Learning strategies are and how they work behind the scenes.
+- What some of the most popular Active Learning (AL) strategies are and how they work behind the scenes.
 - How those techniques can be used via the library [`scikit-activeml`](https://github.com/scikit-activeml/scikit-activeml) without any further implementation.
 - Some experiments with the [flowers dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset) which evaluate the introduced methods. TLDR; random sampling performs surprisingly well compared to the other methods.
 
@@ -68,13 +68,13 @@ In each subsequent iteration, the model trained on the already labeled set $L$ r
 
 The selection strategy is key, and it can depend on several factors, but commonly the model outputs are part of the process. Considering a classification problem, the model typically outputs class probabilities $p(y_k\|x)$ for a sample $x$, where $y_k \in \{1, ..., K\}$ is one of the $K$ classes.
 
-Now, let's have a look at the aforementioned selection methods.
+Now, let's have a look at some of the most common selection methods.
 
 **Random Sampling** &mdash; This is the simplest selection strategy: we randomly select samples from the unlabeled pool $U$ to label; in other words, no model information is used. This serves as a *baseline* for comparison with more sophisticated methods. Mathematically, we can express it as
 
 $$x^*= \text{Uniform}(U),$$
 
-where $x^*$ is the selected sample and $\text{Uniform}(U)$ denotes a function that randomly selects a sample from the unlabeled pool $U$.
+where $x^*$ is one selected sample and $\text{Uniform}(U)$ denotes a function that randomly selects a sample from the unlabeled pool $U$.
 
 **Entropy-based Uncertainty Sampling** &mdash; The entropy of a prediction can be used to measure how confident a model is; if there is one clearly bigger class probability $p(y_k\|x)$, the model is certain of its prediction, whereas more homogeneous $p(y_k\|x)$ values denote uncertainty. The goal of this method is to select the samples with the highest uncertainty, so that the model can learn from them and become more confident. The entropy $H$ of a predicted sample $x$ is defined as 
 
@@ -123,9 +123,9 @@ Again, the idea is similar to the previous two methods, but it only considers th
 
 I have prepared a [GitHub repository](https://github.com/mxagar/active_learning_guide) which contains a mini-project that implements the above methods and runs some experiments with the [Kaggle Flowers Dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset) (classification of 5 types of flowers).
 
-As explained in the [repository's README](https://github.com/mxagar/active_learning_guide/blob/main/README.md), the project is structured as follows:
+As explained in the [repository's README](https://github.com/mxagar/active_learning_guide/blob/main/README.md), the project contains the following files:
 
-- [`active_learning.ipynb`](./active_learning.ipynb): main notebook with the active learning loop and experiments. This is the entry point for the user to learn about AL interactively. The notebook uses three helper modules, listed below.
+- [`active_learning.ipynb`](./active_learning.ipynb): main notebook with the active learning loop and experiments. This is the **entry point** for the user to learn about AL interactively. The notebook uses three helper modules, listed below.
 - [`model_utils.py`](./model_utils.py): model definition and training/evaluation functions. It contains:
     - `TrainConfig`: `dataclass` which defines the training hyperparameters.
     - `SimpleCNN`: simple convolutional neural network (CNN) with 2.2 million parameters for image classification.
@@ -134,7 +134,7 @@ As explained in the [repository's README](https://github.com/mxagar/active_learn
     - `validate` and `evaluate`: functions to evaluate the model on a validation or test set, respectively.
     - `plot_history`: function to plot the training history (loss and accuracy curves).
     - `predict` and `predict_image`: functions to run inference with the model and get the predicted class probabilities, either for a batch of samples or for a single image.
-- [`data_utils.py`](./data_utils.py): data processing functions, e.g., loading the dataset and creating the initial labeled/unlabeled splits.
+- [`data_utils.py`](./data_utils.py): data processing functions, e.g.:
     - `build_paths_and_labels`: function to build the file paths and labels from the dataset directory structure.
     - `CustomDataset`: custom PyTorch dataset class that loads the images and applies transformations.
     - `train_test_val_pool_split`: function to split the dataset into training, validation, and pool sets, and to create the initial labeled set for active learning.
@@ -157,7 +157,7 @@ The library used to run all the aforementioned AL methods (and more) is the comm
 
 ```python
 # Instantiate a query strategy, e.g., an entropy-based uncertainty sampling in this case.
-# This computes the entropy (E=-sum(plog(p))) from the class probabilities
+# This computes the entropy (E=-sum(p*log(p))) from the class probabilities
 # and selects the samples with the highest entropy,
 # i.e., the most uncertain predictions.
 query_strategy = UncertaintySampling(
@@ -171,10 +171,10 @@ query_idx = query_strategy.query(X, y, clf=my_classifier)
 
 Here, the inputs & outputs are:
 
-- `X` = feature matrix, usually of shape `(n_samples, n_features)`
-- `y` = labels with `-1` for unlabeled samples
-- `clf` = some classifier model that *has* the method `predict_proba(X)`
-- `query_idx` = indices of the samples to label next
+- `X` = feature matrix, usually of shape `(n_samples, n_features)`,
+- `y` = labels with `-1` for unlabeled samples,
+- `clf` = some classifier model that *has* the method `predict_proba(X)`,
+- and `query_idx` = indices of the samples to label next.
 
 Therefore, we need to adapt our setup to fit this API.
 
@@ -190,7 +190,7 @@ In the provided code, the adaptation of the PyTorch-based classifier is handled 
 
 - During the instantiation of `TorchClassifierWrapper`, we pass a PyTorch `CustomDataset` containing references to all the unlabeled samples in the pool. In addition, we provide the trained PyTorch model.
 - Internally, `TorchClassifierWrapper` creates a PyTorch `DataLoader` for the `CustomDataset`, which expects a list of sample indices to load; this list corresponds exactly to the input vector `X`, which no longer contains the sample features themselves.
-- It also implements the method `predict_proba(X)`, which runs the `DataLoader` on the indices passed in `X`, calls the PyTorch model, and outputs the model predictions (class probabilities, and optionally embeddings when required by the query strategy, e.g., BADGE).
+- `TorchClassifierWrapper` also implements the method `predict_proba(X)`, which runs the `DataLoader` on the indices passed in `X`, calls the PyTorch model, and outputs the model predictions (class probabilities, and optionally embeddings when required by the query strategy, e.g., BADGE).
 
 :point_right: Check [`TorchClassifierWrapper` in `active_ml_utils.py`](https://github.com/mxagar/active_learning_guide/blob/main/active_ml_utils.py#L41).
 
@@ -328,7 +328,7 @@ And all of them are fair and worth investigating. However, that doesn't change t
 
 I personally have applied AL several times and I was not sure whether it really provided a significant boost in performance compared to random sampling. It is indeed difficult to evaluate that, because we usually don't have the labels. However, my bottom line is the following:
 
-> Although AL techniques are designed to select the most informative samples, they don't always outperform random sampling in practice, especially in deep learning settings. 
+> Although Active Learning (AL) techniques are designed to select the most informative samples, they don't always outperform random sampling in practice, especially in deep learning settings. 
 However, using AL techniques can still provide a reasonable heuristic, and they are rather easy to implement and integrate into the training pipeline.
 
 ## Conclusions
@@ -337,7 +337,7 @@ In this post I have introduced what [Active Learning (AL)](https://en.wikipedia.
 
 <br>
 
-> What's your experience with active learning? Do you think it provides a significant boost in performance compared to random sampling? What's missing in my experimental setup to show that it really outperforms random sampling?
+> What's your experience with Active Learning? Do you think it provides a significant boost in performance compared to random sampling? What's missing in my experimental setup to show that it really outperforms random sampling?
 
 <br>
 

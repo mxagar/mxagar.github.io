@@ -46,7 +46,7 @@ Let's start!
 <div style="height: 20px;"></div>
 <div align="center" style="border: 1px solid #e4f312ff; background-color: #fcd361b9; padding: 1em; border-radius: 6px;">
 <strong>
-You can find this post's accompanying code in <a href="https://github.com/mxagar/diffusion-examples/ddpm">this GitHub repository</a>. If you don't know very well how LLMs work or what embeddings are, I recommend reading my previous post <a href="https://mikelsagardia.io/blog/how-are-llms-built.html">How Are Large Language Models (LLMs) Built?</a> before diving into this one.
+You can find this post's accompanying code in <a href="https://github.com/mxagar/diffusion-examples/ddpm">this GitHub repository</a>. If you don't know very well how LLMs work or what embeddings are, I recommend reading my previous post <a href="https://mikelsagardia.io/blog/how-are-llms-built.html"><i>"How Are Large Language Models (LLMs) Built?"</i></a> before diving into this one.
 </strong>
 </div>
 <div style="height: 30px;"></div>
@@ -82,8 +82,8 @@ $$\hat{W} = W + dW,$$
 
 where 
 
-- $\hat{W}$ represents the adapted weight matrix $(d, f)$
-- and $dW$ is a weight offset to be learned, of shape $(d, f)$.
+- $\hat{W}$ represents the adapted weight matrix of shape $(d, f)$
+- and $dW$ is a weight offset to be learned, also of shape $(d, f)$.
 
 However, we do not operate directly with the weight offset $dW$; instead, we factor it as the multiplication of two low-rank matrices:
 
@@ -93,7 +93,7 @@ where
 
 - $A$ is of shape $(d, r)$,
 - $B$ is of shape $(r, f)$,
-- and $r << d, f$.
+- and $r\, <<\, d, f$.
 
 The key idea is that during training we freeze $W$ while we learn $dW$; however, instead of learning the full-sized $dW$, we learn the much smaller matrices $A$ and $B$. The forward pass of the model is modified as follows:
 
@@ -107,11 +107,11 @@ The proportion of weights in $dW$ as compared to $W$ is the following:
 
 Note that the number of trainable parameters is reduced by controlling the rank value $r$; for instance, if we set $r=4$, we can reduce the number of trainable parameters by more than `100x` for a weight matrix of size $(4096, 4096)$.
 
-LoRA is not applied to all weight matrices, but usually the library (`peft`) decides where to apply it; e.g.: projection matrices $Q$ and $V$ in attention blocks, MLP layers, etc. And, after training, we can merge $W + dW$, so there is no latency added!
+LoRA is not applied to all weight matrices, but usually the library ([`peft`](https://huggingface.co/docs/peft/en/index)) decides where to apply it; e.g.: projection matrices $Q$ and $V$ in attention blocks, MLP layers, etc. And, after training, we can merge $W + dW$, so there is no latency added!
 
-In practice, LoRA assumes that the task-specific update to a large weight matrix lies in a low-dimensional subspace &mdash; and therefore can be efficiently represented with low-rank matrices.
+In practice, LoRA assumes that the task-specific update to a large weight matrix lies in a low-dimensional subspace, and therefore, it can be efficiently represented with low-rank matrices.
 
-In addition to LoRA, **quantization** is often applied to further reduce the model size and speed up inference. Quantization consists in reducing the precision of the weights from 32-bit floating point values to 16-bit or even 4-bit representations (as in QLoRA); in other words, high-precision floats are approximated using only `k` bits. This is achieved by scaling and mapping the original values to a smaller discrete set, sometimes combined with truncating less significant information. Quantization can be easily applied using the library [bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes), which is very well integrated with the HuggingFace ecosystem.
+In addition to LoRA, **quantization** is often applied to further reduce the model size and speed up inference. Quantization consists in reducing the precision of the weights from 32-bit floating point values to 16-bit or even 4-bit representations (as in [QLoRA](https://arxiv.org/abs/2305.14314)); in other words, high-precision floats are approximated using only `k` bits. This is achieved by scaling and mapping the original values to a smaller discrete set, sometimes combined with truncating less significant information. Quantization can be easily applied using the library [bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes), which is very well integrated with the HuggingFace ecosystem.
 
 ## Implementation Notebook
 
@@ -123,14 +123,14 @@ The dataset I use is [`ag_news`](https://huggingface.co/datasets/fancyzhx/ag_new
 
 The notebook is structured in clear sections and comments, which I won't fully reproduce here; the core steps are the following:
 
-- Dataset splitting: I divide the 127,600 samples into the sets `train` (108k samples), `test` (7.6k), and `validation` (12k).
+- Dataset splitting: I divide the 127,600 samples into the sets `train` (108k samples), `validation` (12k), and `test` (7.6k).
 - Tokenization: The `AutoTokenizer` is instantiated with the `distilbert-base-uncased` pre-trained subword tokenizer.
 - Feature exploration: some exploratory data analysis is performed.
 - Model setup: the `AutoModelForSequenceClassification` is instantiated with the `distilbert-base-uncased` pre-trained model, and the `PeftModel` is instantiated with the LoRA configuration.
 - Training: the `Trainer` class is instantiated with the model, the `TrainingArguments`, and the datasets; then, the `train()` method is called to start training.
 - Evaluation: we use the `evaluate()` method of the `Trainer` to evaluate the model on the test set, and we compute our custom metrics (accuracy, precision, recall, and F1), as defined in `compute_metrics()`.
 
-The feature exploration reveals that learning the classification task is going to be quite easy for the model. The function `extract_hidden_states()` is used to extract the last hidden states computed by the model, after each sample is passed through it. Then, these sample embeddings are mapped to 2D using [UMAP](https://umap-learn.readthedocs.io/en/latest/), and plotted in a hexagonal plot colored by class. As we can see, each class occupies a different region in the embedding space without any fine-tuning &mdash; that is, the model already has a good understanding of the differences between the classes.
+The feature exploration revealed that learning the classification task was going to be quite easy for the model. I used the function `extract_hidden_states()` to extract the last hidden states of each sample as computed by the model. Then, I mapped these sample embeddings to 2D using [UMAP](https://umap-learn.readthedocs.io/en/latest/), and I visualized them in a hexagonal plot colored by class. As we can see, each class occupies a different region in the embedding space without any fine-tuning &mdash; that is, the model already has a good understanding of the differences between the classes.
 
 <p align="center">
 <img src="/assets/llms/ag_news_embedding_class_plot.png" alt="Hexagonal plot of the AG News embeddings according to their classes." width="1000"/>
@@ -223,7 +223,7 @@ Other aspects are covered in the notebook, such as:
 
 ## Summary and Conclusion
 
-In this post, I have explained how to adapt LLMs to specific tasks and domains using Parameter-Efficient Fine-Tuning (PEFT), and more concretely, [Low-Rank Adaptation (or LoRA, introduced by Hu et al., 2021)](https://arxiv.org/abs/2106.09685). This technique allows us to train only a small number of parameters while maintaining good performance, which makes it accessible to train and store large language models on consumer hardware.
+In this post, I have explained how to adapt LLMs to specific tasks and domains using Parameter-Efficient Fine-Tuning (PEFT), and more concretely, how [Low-Rank Adaptation (or LoRA, introduced by Hu et al., 2021)](https://arxiv.org/abs/2106.09685) can be applied. This technique allows us to train only a small number of parameters while maintaining good performance, which makes it possible to train and store large language models on consumer hardware.
 
 I have used the classification task applied to the [AG News](https://huggingface.co/datasets/fancyzhx/ag_news) dataset, but many more tasks are possible: token classification (e.g., named entity recognition), question answering, summarization, etc.
 
