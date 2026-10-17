@@ -32,7 +32,7 @@ Subtitle: When We Need to Adapt LLMs to Specific Tasks and Domains
 </small>
 </p>
 
-The release of [ChatGPT](https://openai.com/blog/chatgpt) in November 2022 revolutionized everyday life in much of the developed world. In a similar way that Google convinced us the Internet was truly useful &mdash; and that we needed their search engine &mdash; or Apple introduced the first genuinely usable smartphone that made the digital world ubiquitous, OpenAI came up with the next logical step: assistant chatbots based on Large Language Models (LLMs). Language models already existed, but OpenAI’s chat-based user interface, combined with the emergent capabilities of their huge models, led to the perfect killer app: an ever-ready genie that *seems* to confidently know the answer to everything.
+The release of [ChatGPT](https://openai.com/blog/chatgpt) in November 2022 revolutionized everyday life in much of the developed world. In a similar way that Google convinced us the Internet was truly useful and that we needed their search engine, or Apple introduced the first genuinely usable smartphone that made the digital world ubiquitous, OpenAI came up with the next logical step: assistant chatbots based on Large Language Models (LLMs). Language models already existed, but OpenAI’s chat-based user interface, combined with the emergent capabilities of their huge models, led to the perfect killer app: an ever-ready genie that *seems* to confidently know the answer to everything.
 
 <br>
 
@@ -108,9 +108,9 @@ Soon after the publication of the original encoder-decoder Transformer designed 
 - [**BERT**: Pre-training of Deep Bidirectional Transformers for Language Understanding (Devlin et al., 2018)](https://arxiv.org/abs/1810.04805), which is an implementation of the **encoder-only** part of the original Transformer. 
 - [**GPT**: Improving Language Understanding by Generative Pre-Training (Radford et al., 2018)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf), an implementation of the **decode-only** part of the original Transformer.
 
-BERT-like *encoder-only* transformers are commonly used to generate *feature vectors* $x$ of texts which can be used in downstream applications such as text or token/word classification. If the Encoder is trained separately, the sequence text is shown to the architecture with a masked token which needs to be predicted. This scheme is called *masked language modeling*.
+BERT-like *encoder-only* transformers are commonly used to generate $x$ *feature vectors* of texts which can be used in downstream applications such as text or token/word classification. If the Encoder is trained separately, the sequence text is shown to the architecture with a masked token which needs to be predicted. This scheme is called *masked language modeling*.
 
-GPT-like *decoder-only* transformers are commonly used as *generative models* to predict the next token in a sequence, given all the previous tokens (i.e., the context, which includes the prompt). During training, the model is shown sequences of text and learns to predict each token based on the preceding ones.
+GPT-like *decoder-only* transformers are commonly used as *generative models* to predict the next token in a sequence, given all the previous tokens (i.e., the context, which includes the prompt). During training, the model is shown sequences of text and it learns to predict each token based on the preceding ones.
 
 The full *encoder-decoder* architecture is not as common as the other two currently, but it is used in some specific models for text-to-text tasks, such as summarization and translation. Examples include [T5 (Raffel et al., 2019)](https://arxiv.org/abs/1910.10683) and [BART (Lewis et al., 2019)](https://arxiv.org/pdf/1910.13461).
 
@@ -118,7 +118,7 @@ The full *encoder-decoder* architecture is not as common as the other two curren
 
 So far, we've seen the big picture of the Transformer architecture and its subtypes (encoder-decoder, encoder-only, decoder-only).
 
-> But what's inside those encoder and decoder blocks? Just Attention, normalization, and linear mappings. Let's see them in detail.
+> But what's inside those encoder and decoder blocks? Just Attention, normalization, and linear mappings.
 
 <p align="center">
 <img src="/assets/llms/transformer_annotated.png" alt="Transformer Architecture, Annotated" width="1000"/>
@@ -128,7 +128,7 @@ So far, we've seen the big picture of the Transformer architecture and its subty
 
 As we can see in the figure above, each of the `N` encoder and decoder blocks are composed of the following sub-components:
 
-- **Multi-Head Self-Attention modules**: The core component of the Transformer. It allows the model to focus on different parts of the input sequence when processing each token. Multiple attention heads enable the model to capture various relationships and dependencies in the data. More on this below :wink:
+- **Multi-Head Self-Attention modules**: The core component of the Transformer. It allows the model to focus on different parts of the input sequence when processing each token. Multiple attention heads enable the model to capture various relationships and dependencies in the data. More on this below :wink: .
 - **Skip connections, Add & Norm**: These are [residual (skip) connections](https://arxiv.org/abs/1512.03385) followed by [layer normalization](https://en.wikipedia.org/wiki/Normalization_(machine_learning)#Layer_normalization). Residual connections help to avoid vanishing gradients in deep networks by allowing gradients to flow directly through the skip connections. Normalizing the inputs across the features dimension stabilizes and accelerates training.
 - **Feed-Forward Neural Network** (FFNN, i.e., several concatenated linear mappings): A fully connected feed-forward network applied independently to each position. It consists of two linear transformations with a [ReLU](https://en.wikipedia.org/wiki/Rectified_linear_unit) activation in between, allowing the model to learn complex representations.
 
@@ -150,7 +150,7 @@ Additionally, each attention module is implemented as a **Multi-Head Attention**
 
 The **Self-Attention Head** is the core implementation of the attention mechanism in the Transformer. Each multi-head attention module contains $n$ self-attention heads, which operate in parallel. The input embedding sequence $Z$ is passed to each of these $n$ self-attention heads, where the following occurs:
 
-- We transform the original embeddings $Z$ into $Q$ (query), $K$ (key), and $V$ (value). The transformation is performed by linear/dense layers ($W_Q$, $W_K$, $W_V$), which consist of the learned weights. These *query*, *key*, and *value* variables come from classical [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval); as described in [NLP with Transformers (Tunstall et al., 2022)](https://www.oreilly.com/library/view/natural-language-processing/9781098136789/), using the analogy to a recipe they can be interpreted as follows:
+- We transform the original embeddings $Z$ into $Q$ (query), $K$ (key), and $V$ (value). The transformation is performed by linear/dense layers ($W_Q$, $W_K$, $W_V$), which consist of the learned weights. These *query*, *key*, and *value* variables come from classical [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval); as described in [NLP with Transformers (Tunstall et al., 2022)](https://www.oreilly.com/library/view/natural-language-processing/9781098136789/), using the analogy to a recipe, they can be interpreted as follows:
     - $Q$, *queries*: ingredients in the recipe.
     - $K$, *keys*: the shelf-labels in the supermarket.
     - $V$, *values*: the items in the shelf.
@@ -171,7 +171,7 @@ Then, these $Y_1, ..., Y_n$ contextualized embeddings are concatenated and linea
 Finally, let's see some typical size values, for reference:
 
 - Embedding size: 768, 1024, ..., 2048.
-- Sequence length (context, number of tokens): 128, 256, ..., 8192.
+- Sequence length (context, number of tokens): 128, 256, ..., 8192... or even 1 million tokens.
 - Number of layers/blocks, $N$: 12, 24, 36, 48.
 - Number of attention heads, $n$: 12, 16, 20, 32.
 - Head dimension: typically, embedding size divided by number of heads.
@@ -203,7 +203,7 @@ Probably, the most common way to interact with LLMs for the layman user is the l
 Recall that the output of the generative model is an array of probabilities, specifically, a float value $p \in [0,1]$ for each item in the vocabulary set $V$. A naive approach would be to
 
 1. consider all token probabilities as candidates $\{p_1, p_2, ...\}$ (full distribution sampling),
-2. and select the token with the highest probability at each generation step: $\mathrm{token} = V(\mathrm{argmax}\{p_1, p_2, ...\})$ (greedy search decoding).
+2. and select the token with the highest probability at each generation step: $\mathrm{token} = V(\mathrm{argmax}(\{p_1, p_2, ...\}))$ (greedy search decoding).
 
 However, such a naive approach often leads to repetitive and dull text generation, as described by [Holtzman et al. (2019)](https://arxiv.org/abs/1904.09751). To mitigate this issue, these parameters and strategies are often used:
 
@@ -211,12 +211,12 @@ However, such a naive approach often leads to repetitive and dull text generatio
   - $T = 1$: no change, same as in the original output.
   - $T < 1$: small $p$-s become smaller, larger $p$-s become larger; that means we get a more peaked distribution, i.e., less creativity and more coherence, because the most likely words are going to be chosen.
   - $T > 1$: small $p$-s become bigger, larger $p$-s become smaller; that yields a more homogeneous distribution, which leads to more creativity and diversity, because any word/token could be chosen.
-- Top-$k$ and top-$p$: instead of considering all tokens each with their $p$ (with or without $T$), we reduce it to the $k$ most likely ones and select from them using the distribution we have; similarly, with a top-$p$, we can select the first tokens that cumulate up to a certain $p$-threshold and choose from them.
-- Beam search decoding (as oposed to greedy search): we select a number of beams $b$ and keep track of the most probable next tokens building a tree of options. The most likely paths/beams are chosen, ranking the beams with their summed log probabilities. The higher the number of beams, the better the quality, but the computational effort explodes. Beam search sometimes suffers from repetitive generation; one way to avoid that is using n-gram penalty, i.e., we penalize the repetition of n-grams. This is commonly used in summarization and machine translation.
+- Top-$k$ and top-$p$: instead of considering all tokens each with their $p$ (with or without $T$), we reduce them to the $k$ most likely ones and select from them using the distribution we have; similarly, with a top-$p$, we can select the first tokens that cumulate up to a certain $p$-threshold and choose from them.
+- Beam search decoding (as oposed to greedy search): we select a number of beams $b$ and keep track of the most probable next tokens building a tree of options. The most likely paths/beams are chosen, ranking the beams with their summed log probabilities. The higher the number of beams, the better the quality, but the computational effort explodes. Beam search sometimes suffers from repetitive generation; one way to avoid that is using [*n-gram*](https://en.wikipedia.org/wiki/N-gram) penalty, i.e., we penalize the repetition of *n-grams*. This is commonly used in summarization and machine translation.
 
 <p align="center">
 <img src="/assets/llms/token_sampling.png" alt="Token Sampling" width="1000"/>
-<small style="color:grey">Token sampling strategies in LLMs. The LLM outputs a probability for each of the tokens in the vocabulary. If we apply a temperature <i>T</i>, top-<i>k</i>, or top-<i>p</i> strategy, we modify the distribution from which the next token is sampled. With <i>T > 1</i>, the distribution becomes more uniform, leading to more diverse outputs (since tokens have a more similar probability); in contrast, with <i>T < 1</i>, the distribution becomes more peaked, leading to more focused and coherent outputs. If we set top-<i>k</i> to be 3, we only consider the three most likely tokens for sampling; similarly, with a top-<i>p</i> threshold of 80%, we consider the smallest set of tokens whose cumulative probability is at least 80%. Image by the author.
+<small style="color:grey">Token sampling strategies in LLMs. The LLM outputs a probability for each of the tokens in the vocabulary. If we apply a temperature <i>T</i>, top-<i>k</i>, or top-<i>p</i>, we modify the distribution from which the next token is selected. With <i>T > 1</i>, the distribution becomes more uniform, leading to more diverse outputs (since tokens have a more similar probability); in contrast, with <i>T < 1</i>, the distribution becomes more peaked, leading to more focused and coherent outputs. If we set top-<i>k</i> to be 3, we only consider the three most likely tokens for sampling; similarly, with a top-<i>p</i> threshold of 80%, we consider the smallest set of tokens whose cumulative probability is at least 80%. Image by the author.
 </small>
 </p>
 
@@ -228,9 +228,11 @@ My goal with this post was to explain in plain but still technical words how LLM
 <p align="center">── ◆ ──</p>
 <div style="height: 20px;"></div>
 
-**Context Size** &mdash; This refers to the maximum number of words/tokens that the model can consider as input at once, i.e., the input sequence length or `seq_len`. If we look at the attention mechanism figure above, we will see that the learned weight matrices are independent of the context size; however, the attention computation itself scales quadratically with sequence length due to the $QK^T$ operation. This is a major bottleneck in terms of memory and speed, and it's the main reason why the initial LLMs had a fixed and shorter context size ($512$ - $4,096$ tokens). In recent years, the research community has explored new methods to alleviate that limitation, introducing techniques such as [sparse attention](https://arxiv.org/abs/2004.05150), [linearized attention](https://arxiv.org/abs/2006.16236), [low-rank approximations](https://arxiv.org/abs/2006.04768), and other mathematical/architectural/system tricks. These enable larger context sizes (up to $1,000,000$ tokens in the case of [Gemini Pro](https://gemini.google.com/app)).
+**Context Size** &mdash; This refers to the maximum number of words/tokens that the model can consider as input at once, i.e., the input sequence length or `seq_len`. If we look at the attention mechanism figure above, we will see that the learned weight matrices are independent of the context size; however, the attention computation itself scales quadratically with sequence length due to the $QK^T$ operation. This is a major bottleneck in terms of memory and speed, and it's the main reason why the initial LLMs had a fixed and shorter context size ($512$ - $4,096$ tokens). In recent years, the research community has explored new methods to alleviate that limitation, introducing techniques such as [sparse attention](https://arxiv.org/abs/2004.05150), [linearized attention](https://arxiv.org/abs/2006.16236), [low-rank approximations](https://arxiv.org/abs/2006.04768), and other mathematical/architectural/system tricks. These enable larger context sizes (up to $1,000,000$ tokens in the case of [Gemini Pro](https://gemini.google.com/app) at this date).
 
 **Distillation and Quantization** &mdash; As their name indicates, Large Language Models are *large*, and that makes them difficult to deploy in production environments. Two techniques to overcome that are *distillation* and *quantization*. When we distill a model, we train a smaller student model to mimic the behavior of a larger, slower but better performing teacher (i.e., the original LLM). This is achieved, among other techniques, by using the teacher's output probabilities as soft labels when training the student. A notable example of distillation is [DistilBERT (Sanh et al., 2019)](https://arxiv.org/abs/1910.01108), which achieves around 97% of BERT's performance, but with 40% less memory and 60% faster inference. On the other hand, *quantization* consists in representing the weights with lower precision, i.e., `float32 -> int8` ($32/8 = 4$ times smaller models). The models not only become smaller, but the operations can be done faster (even 100x faster), and the accuracy is sometimes similar.
+
+**Mixture of Experts (MoE)** &mdash; LLMs as described in this post are *dense* models, in the sense that *all* parameters are used for every input: given the input prompt, we vectorize it and apply *all* the matrices described so far. However, it is possible to build *sparse* models, meaning that only a subset of the parameters are used for each input. This is the idea behind [Mixture of Experts (MoE)](https://arxiv.org/abs/1701.06538) models, which consist of multiple sub-models (experts) and a gating mechanism that selects which experts to use for each input token. MoE models can be much larger than dense models, but they are more efficient in terms of computation and memory usage, since only a few experts are active at any given time. They do require large RAM/VRAM spaces to contain the complete model, but only fractions of the parameters are used for each input.
 
 **Emergent Abilities** &mdash; As described by [Wei et al. (2022)](https://arxiv.org/abs/2206.07682), *"emergent abilities are those that are not present in smaller models, but appear in larger ones"*. In other words, they are capabilities that arise, but which were not explicitly trained. This often referred to as *zero-shot* or *few-shot* learning, because the model can perform tasks without any or with very few examples, as demonstrated by [GPT-3 (Brown et al., 2020)](https://arxiv.org/abs/2005.14165), and they start to appear in the 10-100 billion parameter range (GPT-3 had 175 billion parameters). Examples of emergent abilities include arithmetic, commonsense reasoning, and even some forms of creativity. 
 

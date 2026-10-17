@@ -42,8 +42,7 @@ Also, you can find the accompanying code <a href="https://github.com/mxagar/diff
 </div>
 <div style="height: 30px;"></div>
 
-I still find it fascinating that machine learning models are able to learn from examples, even after working with them for more than a decade.  
-But what truly feels like magic to me are image and video generation models.
+I still find it fascinating that machine learning models are able to learn from examples, even after working with them for more than a decade. But what truly feels like magic to me are image and video generation models.
 
 Driven by that fascination, I decided to write a short series of posts explaining how these models work, both in theory and in practice.
 
@@ -128,11 +127,11 @@ VAEs have been typically implemented for compression, denoising and anomaly dete
 
 [**Generative Adversarial Networks (GANs)**](https://arxiv.org/abs/1406.2661) were presented by Goodfellow et al. in 2014 and they represented a significant advancement in realistic image generation. They have two components: a *generator* (decoder-like) and a *discriminator* (encoder-like), but they are arranged and trained differently, as shown in the figure below.
 
-The *generator* $G$ tries to generate realistic images as if they belonged to the real data distribution, starting with latent vector $z$ expanded from a noise seed. On the other hand, the *discriminator* $D$ tries to determine whether an image $x$ is real or fake (i.e., generated: $x' = G(z)$). Usually, $D$ and $G$ have mirrored architectures and their layers are equivalent to the ones used in VAEs.
+The *generator* $G$ tries to generate realistic images as if they belonged to the real data distribution, starting with latent vector $z$ expanded from a noise seed. On the other hand, the *discriminator* $D$ tries to determine whether an image is real ($x$) or fake (i.e., generated: $x' = G(z)$). Usually, $D$ and $G$ have mirrored architectures and their layers are equivalent to the ones used in VAEs.
 
 The training phase looks as follows:
 
-- First, $D$ is trained: we create batches of real images $x$ and batches of fake images $x' = G(z)$, pass them to the discriminator $D$ (i.e., we get $D(x), D(G(z))$), and compute the error with respect to the correct labels. That error is backpropagated to update only the weights of $D$.
+- First, $D$ is trained: we compile batches of real images $x$ and batches of fake images $x' = G(z)$, pass them to the discriminator $D$ (i.e., we get $D(x), D(G(z))$), and compute the error with respect to the correct labels. That error is backpropagated to update only the weights of $D$.
 - Second, $G$ is trained: we create new fake images with the generator $G$ and pass them to the discriminator $D$. The prediction error is backpropagated to update only the weights of $G$.
 - Both steps are alternated for several iterations, until the error metrics no longer improve.
 
@@ -142,7 +141,7 @@ GANs are notoriously difficult to train, [due to several factors](https://github
 
 <p align="center">
 <img src="/assets/diffusion/vae_and_gan.png" alt="VAEs and GANs" width="1000"/>
-<small style="color:grey">Variational Autoencoders (VAEs, left) and Generative Adversarial Networks (GANs, right) were the most popular generative models up until the advent of Diffusers in the past years. VAEs learn to compress and decompress inputs with an *encoder-decoder* architecture which produces a *latent* space with the compressed samples. GANs learn to produce realistic samples adversarially: they generate fake samples (with the *generator*) and try to fool a binary classifier (the *discriminator*) which needs to differentiate between real and fake samples.
+<small style="color:grey">Variational Autoencoders (VAEs, left) and Generative Adversarial Networks (GANs, right) were the most popular generative models up until the advent of Diffusers in the past years. VAEs learn to compress and decompress inputs with an <i>encoder-decoder</i> architecture which produces a <i>latent</i> space with the compressed samples. GANs learn to produce realistic samples adversarially: they generate fake samples (with the <i>generator</i>) and try to fool a binary classifier (the <i>discriminator</i>) which needs to differentiate between real and fake samples.
 </small>
 </p>
 
@@ -150,7 +149,7 @@ Finally, we arrive at the [**Denoising Diffusion Probabilistic Models (Ho et al.
 In just a few years, they have outperformed GANs for image generation and have become the standard method for the task. The core idea is that we train a model which takes
 
 - a noisy image $x_t$ (in the beginning it is a pure random noise map)
-- and an associated noise variance $\beta_t$ (in the beginning it will be a high variance value)
+- and an associated noise variance $\beta_t$ (in the beginning it will be a high variance value),
 
 and it predicts the noise map $\epsilon_t$ overlaid on the image, so that we can subtract it from the noisy image and progressively recover a clean sample $x_0$.
 The process is performed in small, gradual steps, and following a noise rate schedule which decreases the value of $\beta_t$.
@@ -162,7 +161,7 @@ As we can see in the figure below, two iterative phases are distinguished, which
 
 <p align="center">
 <img src="/assets/diffusion/diffusion_idea.png" alt="Denoising Diffusion" width="1000"/>
-<small style="color:grey">In denoising diffusion models a *U-Net* encoder-decoder model is trained to predict the noise in an image. To that end, during training (forward diffusion), noise is gradually added to an image and we query the model to predict the noise map. During inference (reverse diffusion), we start with a pure noise map and query the model to remove the noise step by step &mdash; until we get a clean new image!
+<small style="color:grey">In denoising diffusion models a <i>U-Net</i> encoder-decoder model is trained to predict the noise in an image. To that end, during training (forward diffusion), noise is gradually added to an image and we query the model to predict the noise map. During inference (reverse diffusion), we start with a pure noise map and query the model to remove the noise step by step &mdash; until we get a clean new image!
 </small>
 </p>
 
@@ -178,7 +177,7 @@ To answer that question, we need to consider that generative models are usually 
 - **Coverage**: this measures how diverse the captured distributions are, i.e., the number of modes or peaks in the learned distribution; for instance, in a dataset of dog images, we would expect as many dog breeds as possible, which would be represented as many dense regions differentiable from each other. VAEs and Diffusers have good coverage, whereas GANs tend to deliver less diverse results.
 - **Speed**: this refers to the sampling speed, i.e., how fast we can create new images. GANs and VAEs are the fastest approaches, while Diffusers require longer computation times.
 
-As we can see, there seems to be no all-powerful method that wins in all three metrics. However, [Rombach et al. (2021)](https://arxiv.org/abs/2112.10752) and [Podell et al. (2023)](https://arxiv.org/abs/2307.01952) presented and improved the **Stable Diffusion** approach, which is a very good trade-off (arguably the best so far). This method applies diffusion, but in the latent space, achieving much faster speed values &mdash; I explain more about it in the next section.
+As we can see, there seems to be no all-powerful method that wins in all three metrics. However, [Rombach et al. (2021)](https://arxiv.org/abs/2112.10752) and [Podell et al. (2023)](https://arxiv.org/abs/2307.01952) presented and improved the **Stable Diffusion** approach, which is a very good trade-off (arguably the best so far). This method applies diffusion, but in the latent space, achieving much faster speed values; I explain more about it in the next section.
 
 <p align="center">
 <img src="/assets/diffusion/impossible_triangle.png" alt="Impossible Triangle" width="1000"/>
@@ -188,7 +187,7 @@ Image reproduced by the author, but based on the work by <a href="https://arxiv.
 </p>
 
 
-## How DDPMs Actually Work: Forward Noise, Reverse Denoising
+## How Denoising Diffusion Actually Works: Forward Noise and Reverse Denoising
 
 Now, let's go deeper into the topic of [**Denoising Diffusion Probabilistic Models (Ho et al., 2020)**](https://arxiv.org/abs/2006.11239).
 
@@ -210,7 +209,7 @@ Note that this section has a dedicated repository in which all the models and fo
 
 #### Denoising *U-Net*
 
-The [U-Net (Ronneberger et al., 2015)](https://arxiv.org/abs/1505.04597) was originally created for image segmentation tasks (specifically in the medicine domain): the architecture contracts the input image into a latent tensor, which is then expanded using symmetric decoder layers; as a result, the model outputs a map with the same size as the input image (width and height) in which we obtain values for each pixel, e.g., pixel-wise classification or image segmentation.
+The [*U-Net* (Ronneberger et al., 2015)](https://arxiv.org/abs/1505.04597) was originally created for image segmentation tasks (specifically in the medicine domain): the architecture contracts the input image into a latent tensor, which is then expanded using symmetric decoder layers; as a result, the model outputs a map with the same size as the input image (width and height) in which we obtain values for each pixel, e.g., pixel-wise classification or image segmentation.
 
 In the particular case of the denoising *U-Net*, we have these two *inputs*:
 
@@ -243,7 +242,7 @@ In the *forward diffusion*, or training phase, we add noise $\epsilon_{t-1}$ to 
 $$
 x_t = q(x_t \mid x_{t-1})
 = x_{t-1}\sqrt{1-\beta_t} + \epsilon_{t-1}\sqrt{\beta_t}
-= \mathcal{N}(x_{t-1}\sqrt{1-\beta_t}, \beta_t I)
+= \mathcal{N}(x_{t-1}\sqrt{1-\beta_t}, \beta_t I) ,
 $$
 
 where:
@@ -257,7 +256,7 @@ As a further step, a *re-parametrization* of $\beta$ is carried out, which trans
 That *re-parametrization* is defined as
 
 $$
-\bar{\alpha_t} = \prod_{i=0}^{t}{\alpha_i},\,\,\, \alpha_t = 1 - \beta_t
+\bar{\alpha_t} = \prod_{i=0}^{t}{\alpha_i},\,\,\, \alpha_t = 1 - \beta_t .
 $$
 
 Its interpretation is the following:
@@ -270,7 +269,7 @@ By properly expressing $\beta$ as function of $\alpha$, we obtain the ***forward
 $$
 x_t = q(x_t \mid x_0)
 = x_0\sqrt{\bar{\alpha_t}} + \epsilon\sqrt{1 - \bar{\alpha_t}}
-= \mathcal{N}(x_0\sqrt{\bar{\alpha}_t}, (1-\bar{\alpha}_t) I)
+= \mathcal{N}(x_0\sqrt{\bar{\alpha}_t}, (1-\bar{\alpha}_t) I) .
 $$
 
 Given this equation:
@@ -290,7 +289,7 @@ During the *reverse diffusion* phase or inference, we generate images iterativel
 
 $$
 x_{t-1} = p(x_{t-1} \mid x_t) = 
-\frac{1}{\sqrt{\alpha_t}} (x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}}\epsilon_{\theta}) + \sigma_t z
+\frac{1}{\sqrt{\alpha_t}} (x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}}\epsilon_{\theta}) + \sigma_t z .
 $$
 
 Here,
@@ -313,7 +312,7 @@ The most common form of **conditioning** is done with *text*: we provide a promp
 - During *training*, we inject the embedding vector into different layers of the *U-Net* using cross attention, reinforcing the conditioning. Additionally, we remove the text conditioning in some random steps so that the model learns unconditional generation.
 - During *inference*, the *U-Net* produces the noise map $\epsilon$ with and without text conditioning: $\epsilon_{\textrm{cond}}, \epsilon_{\textrm{uncond}}$. The difference added by the conditioned noise map is amplified (by a factor $\lambda$) to push the final prediction in the direction of the conditioning; mathematically, considering $\epsilon$ is a vector/tensor, this is expressed (and implemented) as follows:
 
-  $\epsilon_{\textrm{final}} = \epsilon_{\textrm{uncond}} + \lambda \cdot (\epsilon_{\textrm{cond}} - \epsilon_{\textrm{uncond}})$
+  $\epsilon_{\textrm{final}} = \epsilon_{\textrm{uncond}} + \lambda \cdot (\epsilon_{\textrm{cond}} - \epsilon_{\textrm{uncond}}) .$
 
 Thanks to these modifications, we are able to obtain our red sports car instead of a green truck.
 
@@ -324,7 +323,7 @@ Finally, let's consider two practical aspects of diffusion models discussed so f
 - Many forward passes are needed to generate our noise-free image.
 - Denoising occurs in pixel-space, which has a relatively large dimensionality.
 
-What if we could apply forward and reverse diffusion in a smaller space to accelerate the process? That is exactly what is achieved by [Rombach et al. (2021)](https://arxiv.org/abs/2112.10752) and [Podell et al. ( 2023)](https://arxiv.org/abs/2307.01952), who introduced and later improved a **latent diffusion** method, also known as **Stable Diffusion**. In essence, latent diffusion models are diffusion models wrapped by autoencoders:
+What if we could apply forward and reverse diffusion in a smaller space to accelerate the process? That is exactly what was achieved by [Rombach et al. (2021)](https://arxiv.org/abs/2112.10752) and [Podell et al. ( 2023)](https://arxiv.org/abs/2307.01952), who introduced and later improved a **latent diffusion** method, also known as **Stable Diffusion**. In essence, latent diffusion models are diffusion models wrapped by autoencoders:
 
 - The encoder creates a latent vector.
 - In the forward diffusion phase, we add noise to the vector and learn to denoise it.
@@ -344,7 +343,7 @@ Stable Diffusion is one of the most popular latent diffusion models; due to the 
 
 The implementation [repository](https://github.com/mxagar/diffusion-examples/tree/main/ddpm) contains the code necessary to train a diffuser and use it to generate new images.
 
-The dataset used in the example is the [Stanford Cars Dataset](https://www.kaggle.com/datasets/eduardo4jesus/stanford-cars-dataset). It contains 16,185 color images categorized into 196 classes, which are resized to `64x64`.
+The used dataset is the [Stanford Cars Dataset](https://www.kaggle.com/datasets/eduardo4jesus/stanford-cars-dataset). It contains 16,185 color images categorized into 196 classes, which are resized to `64x64`.
 
 <p align="center">
 <img src="/assets/diffusion/cars_dataset_samples.png" alt="Cars Dataset Samples" width="1000"/>
@@ -408,7 +407,7 @@ Eight generated samples after 300 epochs of training.
 
 Diffusion models have become the standard approach for image generation by combining high-quality samples, good coverage, and relatively stable training. By framing generation as a gradual denoising process, DDPMs avoid many of the pitfalls of earlier generative models while remaining surprisingly intuitive.
 
-This post focused on building intuition and connecting theory to practice through a minimal DDPM implementation. While the underlying math is rather simple, I still find it fascinating that such models can learn a representation of images rich enough to generate entirely new samples from pure noise &mdash; it often feels a bit like magic.
+In this blog post I focused on building an intuition and connecting theory to practice through a minimal DDPM implementation. While the underlying math is rather simple, I still find it fascinating that such models can learn a representation of images rich enough to generate entirely new samples from pure noise &mdash; it often feels a bit like magic.
 
 If you want to deepen your understanding, the best next step is to [run the notebook yourself](https://github.com/mxagar/diffusion-examples/blob/main/ddpm/ddpm.ipynb), visualize the diffusion process, and experiment with the model's components. Small changes in schedules, architectures, or datasets can lead to very different behaviors.
 

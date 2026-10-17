@@ -99,7 +99,7 @@ Models can be browsed and selected directly from the HuggingFace website, where 
 - `image-to-text`
 - `object-detection`
 - `image-segmentation`
-- ...
+- ... and much more!
 
 If we click on a model we will land on its **model card** page, which typically includes evaluation metrics, references, licensing information, and often a short code snippet showing how to load and run the model.
 
@@ -178,7 +178,7 @@ If you'd like to explore further, here are some additional resources:
     - Saving/loading fine-tuned models locally, as well as exporting them as ONNX for production.
     - Examples with generative models of all modalities and conditioning types: `text-generation`, `text-to-image`, `text-to-video`, etc.
 - A comprehensive example in which I [fine-tune a Large Language Model (LLM)](https://github.com/mxagar/llm_peft_fine_tuning_example) to perform a custom text classification task.
-- My notes on the exceptional book [Natural Language Processing (NLP) with Transformers (Tunstall, von Werra & Wolf &mdash; O'Reilly)](https://github.com/mxagar/nlp_with_transformers_nbs), written by the co-founders of HuggingFace &mdash; highly recommended if you want to use `transformers` effectively.
+- My notes on the exceptional book [Natural Language Processing (NLP) with Transformers (Tunstall, von Werra & Wolf; O'Reilly)](https://github.com/mxagar/nlp_with_transformers_nbs), written by the co-founders of HuggingFace &mdash; highly recommended if you want to use `transformers` effectively.
 
 ## HuggingFace Diffusers in Practice
 
@@ -226,7 +226,7 @@ image = pipe(
 
 <br>
 
-The result is already quite impressive, but it also clearly reveals its synthetic nature. Subtle artifacts appear in areas like eyes and fingers, and some mechanical structures lack global consistency or realism &mdash; typical issues when pushing generation speed to the extreme.
+The result is already quite impressive, but it also clearly reveals its synthetic nature. Subtle artifacts appear in areas like eyes and fingers, and some mechanical structures lack global consistency or realism; typical issues when pushing generation speed to the extreme.
 
 <p align="center">
 <img src="/assets/diffusion/robot_painting_sdxl_turbo.png" alt="A friendly humanoid robot drawing itself." width="1000"/>
@@ -360,7 +360,7 @@ Despite the strong semantic change introduced by the prompt, the Mona Lisa remai
 
 In this second post, we moved from theory to practice and explored how modern diffusion models can be used out of the box with [HuggingFace](https://huggingface.co/) tools. I covered how to run state-of-the-art `text-to-image` models with diffusers, how different diffusion architectures trade off speed and quality, and how combining models enables more powerful workflows such as segmentation-aware in-painting.
 
-Beyond individual examples, the main takeaway is how composable today's generative models have become. By chaining pre-trained components—segmentation, conditioning, and diffusion—we can quickly prototype creative and practical applications without training models from scratch.
+Beyond individual examples, the main takeaway is how composable today's generative models have become. By chaining pre-trained components (segmentation, conditioning, and diffusion) we can quickly prototype creative and practical applications without training models from scratch.
 
 If you want to dig deeper, here are some useful starting points:
 
